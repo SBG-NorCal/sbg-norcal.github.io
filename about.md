@@ -13,15 +13,24 @@ lead: "Function Not Fantasy — since 2003. The East Bay's home for empirical, e
 
 SBG NorCal was formed in **2002 by Lily and Alan Pagle** and has been a member of
 **Straight Blast Gym International** since 2003. SBG is a global network founded in
-Portland, Oregon, by Matt Thornton — built around what he called **"Aliveness"**: the
-empirical, evidence-based, alive-resisted approach to martial arts training that
-emerged from Bruce Lee's "Jeet Kune Do" tradition.
+Portland, Oregon, by Matt Thornton, built on two ideas that still shape every class
+we teach: **Aliveness** and the **I-Method**.
 
-Aliveness is simple: **if it's not trained alive, it's not learned.** We don't drill
-techniques against compliant partners and call it self-defense. We don't teach
-patterns that only work in a film. We teach what works under real pressure, against
-real resistance — because that's the only way martial arts actually transfer to life
-off the mats.
+Aliveness is simple: **if it's not trained alive, it's not learned.** Every skill is
+developed against a partner who is genuinely resisting, so you learn it with the
+timing, energy, and motion of a real exchange. We teach what holds up under real
+pressure — because the conditions a skill is built under are the conditions it holds
+up in, on the mats and off them.
+
+The I-Method is how we get you there safely. It's a progression every student moves
+through, and it's where the name of our Integrations classes comes from:
+
+- **Introduction** — learn the mechanics cooperatively, building sound movement and a
+  clear understanding of the technique.
+- **Isolation** — practice it against steadily increasing resistance, where there's
+  room to find both what works and what doesn't while timing and confidence develop.
+- **Integration** — apply it live, in sparring or rolling, until it becomes part of
+  how you move. This is where you learn not just *how* a technique works, but *when*.
 
 ## What we offer
 
@@ -54,7 +63,6 @@ themselves on the mat and in their communities.
 
 We sit in two of the most respected lineages in modern martial arts:
 
-- **SBG / Jeet Kune Do**: Bruce Lee → Dan Inosanto → Matt Thornton (SBG founder, 1992) → Lily & Alan Pagle (SBG NorCal, 2002).
 - **Brazilian Jiu-Jitsu**: Rickson Gracie → Chris Haueter → Matt Thornton → Lily Pagle (3rd dan BJJ black belt).
 - **Judo**: Lily Pagle (2nd dan) and Alan Pagle (2nd dan), both internationally graded.
 
