@@ -27,19 +27,23 @@ progression every student moves through, and it's where the name of our Integrat
 classes comes from:
 
 - **Introduction** — learn the mechanics cooperatively, with no resistance, until the
-  shape of the movement is right and you understand why it works.
+  shape of the movement is right. SBG caps this stage at five to fifteen minutes; if a
+  movement takes a room longer than that to pick up, it's too complicated to be a
+  fundamental.
 - **Isolation** — drill it as a constrained game with a single objective: recover
   guard, say, while your partner's only job is to deny your knee line. Two things are
-  being tuned at once. The constraint keeps the new skill in front of you instead of
-  letting you fall back on your best move, and the resistance is dialed to where
-  you're succeeding around **70% of the time** — enough failure that timing has to
-  develop, enough success that you're learning rather than just surviving.
-- **Integration** — put it back into full rolling or sparring, where you find out
-  *when* the skill shows up on its own, not just how it works.
+  working at once here. The constraint keeps the new skill in front of you instead of
+  letting you fall back on your best move, and the resistance is not fixed — it goes
+  up each time you succeed and comes down each time you fail, so you stay at the edge
+  of what you can actually do.
+- **Integration** — put the part back into the whole. Full rolling or sparring, where
+  you find out *when* the skill shows up on its own, not just how it works.
 
-That middle stage is the whole point, and it's the one most gyms skip. Open rolling
-mostly teaches you whether you won. Constrained, resisting practice teaches you the
-thing you came to learn.
+That middle stage is the whole point, and it's the one most gyms skip. Matt Thornton's
+criticism of conventional teaching is precise: repetitions without resistance don't
+involve timing, so students never build timing at the new movement itself — they're
+left to find it later, under fire. Open rolling mostly teaches you whether you won.
+Constrained, resisting practice teaches you the thing you came to learn.
 
 ## What we offer
 
