@@ -13,15 +13,32 @@ lead: "Function Not Fantasy — since 2003. The East Bay's home for empirical, e
 
 SBG NorCal was formed in **2002 by Lily and Alan Pagle** and has been a member of
 **Straight Blast Gym International** since 2003. SBG is a global network founded in
-Portland, Oregon, by Matt Thornton — built around what he called **"Aliveness"**: the
-empirical, evidence-based, alive-resisted approach to martial arts training that
-emerged from Bruce Lee's "Jeet Kune Do" tradition.
+Portland, Oregon, by Matt Thornton, built on two ideas that still shape every class
+we teach: **Aliveness** and the **I-Method**.
 
-Aliveness is simple: **if it's not trained alive, it's not learned.** We don't drill
-techniques against compliant partners and call it self-defense. We don't teach
-patterns that only work in a film. We teach what works under real pressure, against
-real resistance — because that's the only way martial arts actually transfer to life
-off the mats.
+Aliveness is simple: **if it's not trained alive, it's not learned.** Every skill is
+developed against a partner who is genuinely resisting, so you learn it with the
+timing, energy, and motion of a real exchange. We teach what holds up under real
+pressure — because the conditions a skill is built under are the conditions it holds
+up in, on the mats and off them.
+
+The I-Method is how a technique gets from your head into your reflexes. It's the
+progression every student moves through, and it's where the name of our Integrations
+classes comes from:
+
+- **Introduction** — learn the mechanics cooperatively, with no resistance, until the
+  shape of the movement is right.
+- **Isolation** — drill it as a constrained game with one objective: recover guard,
+  say, while your partner's only job is to deny your knee line. The constraint keeps
+  the new skill in front of you instead of your best move, and the resistance rises as
+  you succeed and eases when you don't.
+- **Integration** — put the part back into the whole. Full rolling, where you find out
+  *when* the skill shows up on its own.
+
+Most gyms skip that middle stage, and it's the one that matters. Thornton's criticism
+of conventional teaching is precise: repetitions without resistance don't involve
+timing, so students never build timing at the movement itself — they're left to find
+it later, under fire.
 
 ## What we offer
 
@@ -54,8 +71,7 @@ themselves on the mat and in their communities.
 
 We sit in two of the most respected lineages in modern martial arts:
 
-- **SBG / Jeet Kune Do**: Bruce Lee → Dan Inosanto → Matt Thornton (SBG founder, 1992) → Lily & Alan Pagle (SBG NorCal, 2002).
-- **Brazilian Jiu-Jitsu**: Rickson Gracie → Chris Haueter → Matt Thornton → Lily Pagle (3rd dan BJJ black belt).
+- **Brazilian Jiu-Jitsu**: Rickson Gracie → Chris Haueter → Matt Thornton → Lily Pagle (4th dan BJJ black belt).
 - **Judo**: Lily Pagle (2nd dan) and Alan Pagle (2nd dan), both internationally graded.
 
 That lineage matters because it means everything you learn here has been **pressure-tested

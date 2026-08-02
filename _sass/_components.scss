@@ -21,6 +21,7 @@
   transition: all $dur $ease-out;
   white-space: nowrap;
   line-height: 1;
+  max-width: 100%;
 
   &:hover { transform: translateY(-1px); }
   &:active { transform: translateY(0); }
@@ -65,6 +66,22 @@
   &--xl {
     padding: $sp-5 $sp-7;
     font-size: $fs-md;
+  }
+
+  // Below sm the large sizes can outgrow a narrow viewport. Uppercase text at
+  // 0.08em tracking, plus $sp-6/$sp-7 side padding and the `white-space: nowrap`
+  // above, gives "Donate (tax-deductible) →" an intrinsic width of ~346px — wider
+  // than a 320px screen. Because `body` sets `overflow-x: hidden` that never
+  // produces a scrollbar; it silently clips the button's right edge and its
+  // arrow instead. Let long labels wrap and pull the padding in.
+  &--lg,
+  &--xl {
+    @media (max-width: $bp-sm - 1) {
+      padding: $sp-3 $sp-4;
+      font-size: $fs-sm;
+      white-space: normal;
+      text-align: center;
+    }
   }
 
   &--block {
@@ -966,6 +983,16 @@
   gap: $sp-5;
 }
 
+// Pillars carrying a __steps breakdown (the homepage "three things") hold a
+// single column until lg. The plain paragraph pillars on /mats/ are fine in
+// three columns from md, but at 768px three columns leaves ~224px per card,
+// which wraps the step lines to about 25 characters — well under a readable
+// measure. Full width to 1023px keeps them to one or two lines each.
+.mats-pillars--detailed {
+  @include md { grid-template-columns: 1fr; }
+  @include lg { grid-template-columns: repeat(3, 1fr); }
+}
+
 .mats-pillar {
   padding: $sp-6;
   background: $ink-2;
@@ -990,6 +1017,28 @@
     font-size: $fs-sm;
     color: $fg-mute;
     margin: 0;
+  }
+
+  // Three-part breakdown under the blurb (Timing/Energy/Motion, the I-Method
+  // stages, Street/Sport/Art). Every pillar carries one so the grid columns
+  // stay even — a list in only one card leaves the others padded with
+  // whitespace, since grid items stretch to the tallest.
+  &__steps {
+    list-style: none;
+    margin: $sp-3 0 0;
+    padding: 0;
+
+    li {
+      font-size: $fs-xs;
+      color: $fg-mute;
+      line-height: 1.5;
+      margin-top: $sp-2;
+    }
+  }
+
+  &__step {
+    color: $fg;
+    font-weight: 600;
   }
 }
 
