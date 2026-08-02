@@ -22,15 +22,24 @@ timing, energy, and motion of a real exchange. We teach what holds up under real
 pressure — because the conditions a skill is built under are the conditions it holds
 up in, on the mats and off them.
 
-The I-Method is how we get you there safely. It's a progression every student moves
-through, and it's where the name of our Integrations classes comes from:
+The I-Method is how a technique gets from your head into your reflexes. It's the
+progression every student moves through, and it's where the name of our Integrations
+classes comes from:
 
-- **Introduction** — learn the mechanics cooperatively, building sound movement and a
-  clear understanding of the technique.
-- **Isolation** — practice it against steadily increasing resistance, where there's
-  room to find both what works and what doesn't while timing and confidence develop.
-- **Integration** — apply it live, in sparring or rolling, until it becomes part of
-  how you move. This is where you learn not just *how* a technique works, but *when*.
+- **Introduction** — learn the mechanics cooperatively, with no resistance, until the
+  shape of the movement is right and you understand why it works.
+- **Isolation** — drill it as a constrained game with a single objective: recover
+  guard, say, while your partner's only job is to deny your knee line. Two things are
+  being tuned at once. The constraint keeps the new skill in front of you instead of
+  letting you fall back on your best move, and the resistance is dialed to where
+  you're succeeding around **70% of the time** — enough failure that timing has to
+  develop, enough success that you're learning rather than just surviving.
+- **Integration** — put it back into full rolling or sparring, where you find out
+  *when* the skill shows up on its own, not just how it works.
+
+That middle stage is the whole point, and it's the one most gyms skip. Open rolling
+mostly teaches you whether you won. Constrained, resisting practice teaches you the
+thing you came to learn.
 
 ## What we offer
 
