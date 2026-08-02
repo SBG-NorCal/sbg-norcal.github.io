@@ -96,7 +96,7 @@ no_header_pad: true
       <span class="eyebrow">The SBG way</span>
       <h2>Three things that make us different.</h2>
     </div>
-    <div class="mats-pillars" style="--mats: #d22020;">
+    <div class="mats-pillars mats-pillars--detailed" style="--mats: #d22020;">
       <div class="mats-pillar" style="border-top-color: #d22020;">
         <div class="mats-pillar__num" style="color: #d22020;">01</div>
         <h3>Aliveness</h3>
@@ -167,11 +167,6 @@ no_header_pad: true
   <div class="container">
     <div class="section-title">
       <span class="eyebrow">Meet the team</span>
-      <h2>Coaches who actually coach</h2>
-      <p>
-        Every coach at SBG NorCal earned their position through our year-long coach's course.
-        From Olympic-level grapplers to PhD scientists, our team is here because they love teaching.
-      </p>
     </div>
     <div class="coaches-grid">
       {% assign visible_coaches = site.coaches | where_exp: "c", "c.hidden != true" %}

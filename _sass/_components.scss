@@ -966,6 +966,16 @@
   gap: $sp-5;
 }
 
+// Pillars carrying a __steps breakdown (the homepage "three things") hold a
+// single column until lg. The plain paragraph pillars on /mats/ are fine in
+// three columns from md, but at 768px three columns leaves ~224px per card,
+// which wraps the step lines to about 25 characters — well under a readable
+// measure. Full width to 1023px keeps them to one or two lines each.
+.mats-pillars--detailed {
+  @include md { grid-template-columns: 1fr; }
+  @include lg { grid-template-columns: repeat(3, 1fr); }
+}
+
 .mats-pillar {
   padding: $sp-6;
   background: $ink-2;
