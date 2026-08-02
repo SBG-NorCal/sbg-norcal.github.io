@@ -1,9 +1,17 @@
 ---
 layout: default
 title: Our Coaches
-description: "Meet the SBG NorCal coaching team — head coaches Lily and Alan Pagle, plus 10 SBG-trained jiu-jitsu, kickboxing, and youth coaches."
+description: "Meet the SBG NorCal coaching team — head coaches Lily and Alan Pagle, plus our SBG-trained jiu-jitsu, kickboxing, and youth coaches."
 permalink: /coaches/
 ---
+
+{% comment %}
+  Coach count is derived, never typed. A hardcoded "Twelve" here went stale the
+  moment a coach file was removed, while the homepage's dynamic count stayed
+  right — so the two pages disagreed. Note Liquid does NOT run in front matter,
+  which is why the `description` above carries no number at all.
+{% endcomment %}
+{% assign sorted_coaches = site.coaches | where_exp: "c", "c.hidden != true" | sort: 'order' %}
 
 <header class="hero hero--page">
   <div class="hero__media">
@@ -13,15 +21,14 @@ permalink: /coaches/
     <span class="hero__eyebrow">Coaches</span>
     <h1 class="hero__title">The team behind every class.</h1>
     <p class="hero__lead">
-      Twelve coaches. Every one of them graduated from our year-long SBG coach's course.
-      Every one of them is a volunteer.
+      {{ sorted_coaches.size }} coaches. Every one of them graduated from our year-long
+      SBG coach's course. Every one of them is a volunteer.
     </p>
   </div>
 </header>
 
 <section class="section">
   <div class="container">
-    {% assign sorted_coaches = site.coaches | where_exp: "c", "c.hidden != true" | sort: 'order' %}
     <div class="coaches-grid">
       {% for coach in sorted_coaches %}
         {% include coach-card.html coach=coach %}
