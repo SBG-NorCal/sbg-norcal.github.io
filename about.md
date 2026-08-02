@@ -71,7 +71,7 @@ themselves on the mat and in their communities.
 
 We sit in two of the most respected lineages in modern martial arts:
 
-- **Brazilian Jiu-Jitsu**: Rickson Gracie → Chris Haueter → Matt Thornton → Lily Pagle (3rd dan BJJ black belt).
+- **Brazilian Jiu-Jitsu**: Rickson Gracie → Chris Haueter → Matt Thornton → Lily Pagle (4th dan BJJ black belt).
 - **Judo**: Lily Pagle (2nd dan) and Alan Pagle (2nd dan), both internationally graded.
 
 That lineage matters because it means everything you learn here has been **pressure-tested
