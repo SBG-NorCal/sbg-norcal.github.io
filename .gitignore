@@ -1,0 +1,24 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+node_modules/
+Gemfile.lock
+.DS_Store
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+# package-lock.json IS committed: CI uses actions/setup-node with `cache: npm`,
+# which fails the job outright if no lockfile exists, and `npm ci` needs it too.
+# It never reaches the live site — _config.yml excludes it from the build.
+
+# Local copies of the gym's master schedule spreadsheet
+*.xlsx
+
+*.swp
+*.swo

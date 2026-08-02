@@ -1,0 +1,32 @@
+# =========================================================================
+# Testimonials. Add a new entry and it shows up automatically.
+# =========================================================================
+
+testimonials:
+  - quote: >-
+      I joined to get fit and found a passion for the sport and an
+      incredible community. From student to coach — SBG NorCal has
+      completely shaped how I show up in life.
+    author: "Denny C."
+    role: "Member since 2017 · Purple belt coach"
+
+  - quote: >-
+      My PhD work in biochemistry and my coaching at SBG share the
+      same thread: deliberate practice, honest feedback, and people
+      who hold you to a higher standard.
+    author: "Dr. Matthew \"Oki\" O'Connor"
+    role: "Member since 2010 · Foundations coach"
+
+  - quote: >-
+      Coming from a Krav Maga and Taekwondo background, I came to
+      SBG for the kids program and stayed for the whole family.
+      The coaches truly know how to teach.
+    author: "Bill S."
+    role: "Youth coach · 2nd dan TKD"
+
+  - quote: >-
+      What started as a weeklong MATS camp became a long-term
+      relationship with mentors who pushed me toward college and a
+      career. That kind of support changes lives.
+    author: "MATS scholarship athlete"
+    role: "Anonymous · East Bay"

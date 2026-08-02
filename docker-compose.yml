@@ -1,0 +1,34 @@
+# =========================================================================
+# Docker Compose for SBG NorCal × MATS Jekyll site.
+# Cross-platform local dev — no Ruby installation required.
+#
+# Usage:
+#   docker compose up                                 # start dev server on :4000
+#   docker compose up -d                              # same, detached
+#   docker compose down                               # stop & remove container
+#   docker compose --profile build run --rm build    # one-shot production build → _site/
+# =========================================================================
+
+services:
+  site:
+    build: .
+    container_name: sbg-norcal-mats
+    ports:
+      - "4000:4000"
+      - "35729:35729"           # livereload websocket
+    volumes:
+      - .:/site
+      - bundle_cache:/usr/local/bundle
+
+  build:
+    build: .
+    profiles: ["build"]
+    volumes:
+      - .:/site
+      - bundle_cache:/usr/local/bundle
+    command: bundle exec jekyll build
+    environment:
+      JEKYLL_ENV: production
+
+volumes:
+  bundle_cache:

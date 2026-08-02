@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0e" />
+
+  {% seo %}
+
+  {% comment %}
+    Interim staging site — see the `noindex` flag in _config.yml.
+    Keeps this copy out of search results while the gym's Wix site is
+    still the official one. Remove by setting `noindex: false`.
+  {% endcomment %}
+  {% if site.noindex %}
+  <meta name="robots" content="noindex, nofollow" />
+  {% endif %}
+
+  {% comment %} Performance + font preload {% endcomment %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  {% comment %}
+    ?v= is a cache-buster, not decoration. GitHub Pages serves assets with
+    `cache-control: max-age=600` and this URL is otherwise identical between
+    builds, so for up to 10 minutes after a deploy a browser can pair OLD
+    cached CSS with NEW HTML. That combination shows up as real-looking
+    layout bugs: the belt badge back at the top of coach portraits, and the
+    schedule rendering 6 day columns inside a 7-column grid, leaving a gap
+    where Sunday used to be.
+
+    site.time changes every build, so each deploy gets a fresh URL and CSS
+    changes apply immediately. It needs no plugin (unlike
+    site.github.build_revision, which isn't populated by our Actions build).
+  {% endcomment %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
+  <link rel="icon" href="{{ '/assets/images/logo-sbg.jpg' | relative_url }}" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="{{ '/assets/images/logo-sbg.jpg' | relative_url }}" />
+
+  {% feed_meta %}
+
+  {% comment %} Structured data for local business {% endcomment %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "{{ site.data.site.brand.gym_name }}",
+    "description": "{{ site.description | strip_newlines | escape }}",
+    "url": "{{ site.url }}",
+    "telephone": "{{ site.data.site.contact.phone }}",
+    "email": "{{ site.data.site.contact.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.data.site.contact.address_line_1 }}",
+      "addressLocality": "{{ site.data.site.contact.city }}",
+      "addressRegion": "{{ site.data.site.contact.state }}",
+      "postalCode": "{{ site.data.site.contact.zip }}",
+      "addressCountry": "{{ site.data.site.contact.country }}"
+    },
+    "sameAs": [
+      {% for s in site.data.site.social %}"{{ s.url }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+    ]
+  }
+  </script>
+</head>
+<body class="page page--{{ page.layout | default: 'default' }}{% if page.url == '/get-started/' %} no-promo{% endif %}">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  {% unless page.url == '/get-started/' %}{% include promo-bar.html %}{% endunless %}
+
+  {% include header.html %}
+
+  <main id="main" class="site-main{% if page.no_header_pad %} site-main--no-pad{% endif %}">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  {% include scripts.html %}
+</body>
+</html>

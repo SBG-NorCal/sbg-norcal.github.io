@@ -1,0 +1,121 @@
+# =========================================================================
+# Jekyll configuration — SBG NorCal, powered by MATS
+# =========================================================================
+
+title: "SBG NorCal"
+tagline: "Function Not Fantasy — since 2003"
+description: >-
+  SBG NorCal is the Bay Area's home for Brazilian Jiu-Jitsu, MMA,
+  kickboxing, and boxing. Powered by MATS (Martial Arts Training and
+  Scholarship), a 501(c)(3) using martial arts to build stronger
+  communities in Berkeley and the East Bay.
+
+# -------------------------------------------------------------------------
+# WHERE THIS SITE LIVES
+#
+# `url` is the public origin. It is NOT used for internal links (those use
+# `baseurl`) — it's what jekyll-seo-tag, jekyll-sitemap, and jekyll-feed
+# stamp into rel=canonical, og:url, sitemap.xml, and feed.xml.
+#
+# Getting it wrong is invisible to visitors but tells Google the real
+# version of every page lives somewhere else. It previously pointed at
+# https://sbgnorcal.com (the gym's Wix site), which made all 34 sitemap
+# URLs and every canonical tag point to a page that doesn't exist.
+#
+# `baseurl` stays EMPTY, here and everywhere. This repo is the SBG-NorCal
+# org site (`SBG-NorCal/sbg-norcal.github.io`), so Pages serves it from the
+# domain root, not a subfolder — actions/configure-pages hands the build an
+# empty base_path already. Empty is also what lets `jekyll serve` work at
+# localhost:4000 with no path prefix, so local and production agree.
+#
+# ---- AT CUTOVER to sbgnorcal.com, change this line: ---------------------
+#   url: "https://www.sbgnorcal.com"
+# ...add a CNAME file and point DNS at GitHub Pages. `baseurl` does NOT
+# change — it is already empty and the site is already served from a root.
+# That is the whole reason this lives in an org-site repo. See README →
+# "Cutting over to sbgnorcal.com".
+# -------------------------------------------------------------------------
+url: "https://sbg-norcal.github.io"
+baseurl: ""
+
+# Search-engine indexing. Set to true to render
+# `<meta name="robots" content="noindex, nofollow">` site-wide.
+#
+# Deliberately TRUE for now: this is a staging home while the code moves to
+# the SBG-NorCal org and before the sbgnorcal.com cutover. Keeping it out of
+# the index avoids competing with the gym's still-live Wix site, and avoids
+# building up ranking at a github.io address that is thrown away at cutover.
+# Flip to false in the same change that points `url` at sbgnorcal.com.
+noindex: true
+
+# Locale & SEO
+lang: en-US
+locale: en_US
+timezone: America/Los_Angeles
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Plugins (all GitHub-Pages safe)
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections — content types managed as files for easy templating
+collections:
+  coaches:
+    output: true
+    permalink: /coaches/:name/
+  programs:
+    output: true
+    permalink: /programs/:name/
+  events:
+    output: true
+    permalink: /events/:name/
+
+# Default front matter so editors don't have to repeat themselves
+defaults:
+  - scope: { path: "", type: "coaches" }
+    values:
+      layout: coach
+  - scope: { path: "", type: "programs" }
+    values:
+      layout: program
+  - scope: { path: "", type: "events" }
+    values:
+      layout: event
+  - scope: { path: "" }
+    values:
+      layout: page
+
+# Ignore source artifacts and editor files when building
+exclude:
+  - README.md
+  - CLAUDE.md
+  - CONTENT.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - "*.gemspec"
+  - .github
+  - .gitignore
+  - .gitattributes
+  - .editorconfig
+  - docker-compose.yml
+  - Dockerfile
+  - .dockerignore
+  - docs
+  # Test tooling — never published to the live site
+  - tests
+  - package.json
+  - package-lock.json
+  - playwright.config.js
+  - playwright-report
+  - test-results

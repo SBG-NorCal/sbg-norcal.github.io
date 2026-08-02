@@ -1,0 +1,109 @@
+---
+layout: default
+title: Events
+description: "Free community workshops, gym socials, and MATS scholarship events at SBG NorCal Berkeley."
+permalink: /events/
+---
+
+<header class="hero hero--compact">
+  <div class="container hero__content">
+    <span class="hero__eyebrow">Events &amp; Workshops</span>
+    <h1 class="hero__title">Free for the community.</h1>
+    <p class="hero__lead">
+      Through MATS, SBG NorCal hosts free public workshops in fitness, self-defense,
+      and wellness — plus member socials and scholarship events. Everyone's welcome.
+    </p>
+  </div>
+</header>
+
+{% assign all_events = site.events | sort: 'date' | reverse %}
+{% assign upcoming = "" | split: "" %}
+{% assign past = "" | split: "" %}
+{% for e in all_events %}
+  {% if e.status == 'upcoming' %}{% assign upcoming = upcoming | push: e %}{% else %}{% assign past = past | push: e %}{% endif %}
+{% endfor %}
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Upcoming</span>
+    <h2 style="margin-top:0.5rem;">Mark your calendar</h2>
+
+    {% if upcoming.size > 0 %}
+    <div class="events-list">
+      {% assign upcoming_sorted = upcoming | sort: 'date' %}
+      {% for e in upcoming_sorted %}
+      <a href="{{ e.url | relative_url }}" class="event-row">
+        <div class="event-row__date">
+          <span class="day">{{ e.date | date: "%-d" }}</span>
+          <span class="month-year">{{ e.date | date: "%b %Y" }}</span>
+        </div>
+        <div class="event-row__body">
+          <h3>{{ e.title }}</h3>
+          <p>{{ e.short }}</p>
+        </div>
+        <div class="event-row__meta">
+          <span>{{ e.time }}</span>
+          <span>{{ e.cost }}</span>
+          {% if e.partiful_url %}<span class="rsvp-badge rsvp-badge--partiful">Partiful RSVP</span>
+          {% elsif e.luma_url %}<span class="rsvp-badge rsvp-badge--luma">Luma RSVP</span>
+          {% elsif e.eventbrite_url %}<span class="rsvp-badge rsvp-badge--eventbrite">Eventbrite</span>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div style="padding:2rem; background:#16161b; border:1px solid #2a2a32; border-radius:16px; text-align:center; color:#c9c2b6;">
+      <p style="margin:0;">No upcoming events at the moment. Subscribe to our calendar to be notified when new events are added.</p>
+      <div style="margin-top:1rem; display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn--secondary" href="{{ site.data.site.calendars.google_calendar_url }}" rel="noopener" target="_blank">Add Google Calendar</a>
+        <a class="btn btn--ghost" href="{{ site.data.site.calendars.apple_calendar_ics }}">Apple .ics</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if past.size > 0 %}
+<section class="section section--alt">
+  <div class="container">
+    <span class="eyebrow">Past events</span>
+    <h2 style="margin-top:0.5rem;">What we've done</h2>
+    <div class="events-list">
+      {% for e in past %}
+      <a href="{{ e.url | relative_url }}" class="event-row event-row--past">
+        <div class="event-row__date">
+          <span class="day">{{ e.date | date: "%-d" }}</span>
+          <span class="month-year">{{ e.date | date: "%b %Y" }}</span>
+        </div>
+        <div class="event-row__body">
+          <h3>{{ e.title }}</h3>
+          <p>{{ e.short }}</p>
+        </div>
+        <div class="event-row__meta">
+          <span>{{ e.cost }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="members-cta">
+      <div>
+        <span class="eyebrow eyebrow--mats">Members only</span>
+        <h2 style="margin-top:0.5rem;">Already train with us?</h2>
+        <p style="color:#c9c2b6; max-width:560px;">
+          Active members and MATS scholarship athletes have access to a private
+          calendar covering in-house tournaments, open-mat rotations, team trips,
+          and other members-only events.
+        </p>
+      </div>
+      <a href="{{ '/members/' | relative_url }}" class="btn btn--secondary btn--lg">View members calendar <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+{% include cta-banner.html %}

@@ -1,0 +1,12 @@
+{% assign coach = include.coach %}
+<a href="{{ coach.url | relative_url }}" class="coach-card">
+  <div class="coach-card__media">
+    <img src="{{ coach.photo | relative_url }}" alt="Portrait of {{ coach.name | escape }}" loading="lazy" />
+    {% if coach.belt %}<span class="coach-card__belt">{{ coach.belt }}</span>{% endif %}
+  </div>
+  <div class="coach-card__body">
+    <div class="coach-card__role">{{ coach.role }}</div>
+    <h3 class="coach-card__name">{{ coach.name }}</h3>
+    <p class="coach-card__bio">{{ coach.short_bio | truncate: 140 }}</p>
+  </div>
+</a>

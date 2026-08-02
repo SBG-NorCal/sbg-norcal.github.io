@@ -1,0 +1,37 @@
+---
+layout: default
+title: Our Programs
+description: "Brazilian Jiu-Jitsu, MMA, Kickboxing, Boxing Bootcamp, Fitness 101, and Youth Martial Arts at SBG NorCal Berkeley."
+permalink: /programs/
+---
+
+<header class="hero hero--page">
+  <div class="hero__media">
+    <img src="{{ '/assets/images/programs/bjj.jpg' | relative_url }}" alt="" loading="eager" />
+  </div>
+  <div class="container hero__content">
+    <span class="hero__eyebrow">Programs</span>
+    <h1 class="hero__title">Train what actually works.</h1>
+    <p class="hero__lead">
+      Six programs. Ages three through seventy. Every class is led by a credentialed,
+      year-long-trained SBG coach — and your first ten days are on us.
+    </p>
+    <div class="hero__actions">
+      <a href="{{ '/get-started/' | relative_url }}" class="btn btn--primary btn--lg">Try 10 days free <span class="arrow">→</span></a>
+      <a href="{{ '/schedule/' | relative_url }}" class="btn btn--secondary btn--lg">See the schedule</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="programs-grid">
+      {% assign programs = site.programs | sort: 'order' %}
+      {% for program in programs %}
+        {% include program-card.html program=program %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include cta-banner.html %}

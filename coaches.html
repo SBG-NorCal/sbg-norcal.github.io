@@ -1,0 +1,33 @@
+---
+layout: default
+title: Our Coaches
+description: "Meet the SBG NorCal coaching team — head coaches Lily and Alan Pagle, plus 10 SBG-trained jiu-jitsu, kickboxing, and youth coaches."
+permalink: /coaches/
+---
+
+<header class="hero hero--page">
+  <div class="hero__media">
+    <img src="{{ '/assets/images/coaches/lily-pagle.jpg' | relative_url }}" alt="" loading="eager" />
+  </div>
+  <div class="container hero__content">
+    <span class="hero__eyebrow">Coaches</span>
+    <h1 class="hero__title">The team behind every class.</h1>
+    <p class="hero__lead">
+      Twelve coaches. Every one of them graduated from our year-long SBG coach's course.
+      Every one of them is a volunteer.
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    {% assign sorted_coaches = site.coaches | where_exp: "c", "c.hidden != true" | sort: 'order' %}
+    <div class="coaches-grid">
+      {% for coach in sorted_coaches %}
+        {% include coach-card.html coach=coach %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include cta-banner.html %}

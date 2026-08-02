@@ -1,0 +1,68 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a href="{{ '/' | relative_url }}" class="site-header__brand" aria-label="SBG NorCal home" style="margin-bottom:1rem;">
+          <img src="{{ '/assets/images/logo-sbg.jpg' | relative_url }}" alt="" class="site-header__logo" />
+          <div>
+            <div style="color:#f5f1ea; font-family: Anton, sans-serif; font-size: 1.25rem; letter-spacing: 0.04em; text-transform: uppercase;">{{ site.data.site.brand.gym_name }}</div>
+            <div class="site-header__brand-meta" style="display:block;">Powered by {{ site.data.site.brand.foundation_name }}</div>
+          </div>
+        </a>
+        <p style="color:#8b8579; font-size:0.875rem; margin: 1rem 0;">
+          {{ site.data.site.brand.gym_motto }} &mdash; since {{ site.data.site.brand.established }}.<br/>
+          {{ site.data.site.brand.foundation_full_name }} is a {{ site.data.site.brand.legal_structure }}.
+        </p>
+        <p style="font-size:0.875rem; color:#c9c2b6; margin: 0 0 0.25rem;">
+          <strong style="color:#f5f1ea;">{{ site.data.site.contact.address_line_1 }}</strong><br/>
+          {{ site.data.site.contact.city }}, {{ site.data.site.contact.state }} {{ site.data.site.contact.zip }}
+        </p>
+        <p style="font-size:0.875rem; color:#c9c2b6;">
+          <a href="tel:{{ site.data.site.contact.phone_link }}" style="color:#c9c2b6;">{{ site.data.site.contact.phone }}</a><br/>
+          <a href="mailto:{{ site.data.site.contact.email }}" style="color:#c9c2b6;">{{ site.data.site.contact.email }}</a>
+        </p>
+      </div>
+
+      <div>
+        <h4>Train</h4>
+        <ul>
+          {% for item in site.data.navigation.footer.train_with_us %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Give Back</h4>
+        <ul>
+          {% for item in site.data.navigation.footer.give_back %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h4>About</h4>
+        <ul>
+          {% for item in site.data.navigation.footer.about_us %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="site-footer__legal">
+        &copy; {{ 'now' | date: "%Y" }} {{ site.data.site.brand.gym_name }} &mdash; {{ site.data.site.brand.foundation_full_name }}.
+        All rights reserved. 501(c)(3) tax-deductible &middot; EIN {{ site.data.site.brand.mats_ein }}.
+      </div>
+      <div class="site-footer__social" aria-label="Social media">
+        {% for s in site.data.site.social %}
+        <a href="{{ s.url }}" rel="noopener" target="_blank" aria-label="{{ s.name | escape }}">
+          {% include icon-social.html name=s.icon %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</footer>

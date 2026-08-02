@@ -1,0 +1,1424 @@
+// =========================================================================
+// Components — buttons, cards, nav, hero, etc.
+// =========================================================================
+
+// ---- Buttons ------------------------------------------------------------
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $sp-2;
+  padding: $sp-3 $sp-5;
+  font-family: $font-body;
+  font-weight: $weight-bold;
+  font-size: $fs-sm;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all $dur $ease-out;
+  white-space: nowrap;
+  line-height: 1;
+
+  &:hover { transform: translateY(-1px); }
+  &:active { transform: translateY(0); }
+  &:focus-visible { outline: 2px solid $accent-2; outline-offset: 3px; }
+
+  &--primary {
+    background: $accent;
+    color: #fff;
+    box-shadow: $shadow-sm;
+
+    &:hover { background: $accent-2; color: #fff; box-shadow: $glow-red; }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: $fg;
+    border-color: $fg;
+
+    &:hover { background: $fg; color: $ink; }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $fg-mute;
+    border-color: $border;
+
+    &:hover { color: $fg; border-color: $fg; }
+  }
+
+  &--mats {
+    background: $mats;
+    color: $ink;
+
+    &:hover { background: lighten($mats, 5%); color: $ink; }
+  }
+
+  &--lg {
+    padding: $sp-4 $sp-6;
+    font-size: $fs-base;
+  }
+
+  &--xl {
+    padding: $sp-5 $sp-7;
+    font-size: $fs-md;
+  }
+
+  &--block {
+    display: flex;
+    width: 100%;
+  }
+}
+
+// Arrow that auto-appends to buttons
+.btn .arrow {
+  display: inline-block;
+  transition: transform $dur $ease-out;
+}
+.btn:hover .arrow { transform: translateX(4px); }
+
+// ---- Promo bar (above header) ------------------------------------------
+.promo-bar {
+  display: block;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: $z-nav + 1;
+  background: $accent;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  padding: $sp-2 0;
+  text-align: center;
+  transition: background $dur $ease-out;
+
+  &:hover { background: $accent-2; color: #fff; }
+
+  &__inner {
+    display: inline-flex;
+    align-items: center;
+    gap: $sp-3;
+    flex-wrap: nowrap;
+    justify-content: center;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  &__pulse {
+    flex-shrink: 0;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.6);
+    animation: promo-pulse 2s infinite ease-out;
+  }
+
+  &__cta {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: $sp-1;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: $fs-xs;
+    padding-left: $sp-3;
+    border-left: 1px solid rgba(255,255,255,0.4);
+    margin-left: $sp-2;
+  }
+
+  // Short detail only shows on narrow desktop/tablet — phones get just the
+  // headline + arrow CTA so the bar stays on a single line.
+  &__detail-short {
+    display: none;
+    @media (min-width: 641px) and (max-width: 900px) { display: inline; }
+  }
+
+  // Phones (≤640px): keep the bar to one line with just the headline + arrow.
+  @media (max-width: 640px) {
+    font-size: 0.75rem;
+    padding: 6px 0;
+    &__inner { gap: $sp-2; }
+    &__cta {
+      padding-left: $sp-2;
+      margin-left: 0;
+      border-left: 0;
+    }
+    &__cta-text { display: none; }
+    &__detail { display: none; }
+  }
+}
+
+@keyframes promo-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+  70%  { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+// ---- Site header --------------------------------------------------------
+.site-header {
+  position: fixed;
+  top: 32px; left: 0; right: 0;  // Below promo bar (mobile compact)
+  z-index: $z-nav;
+  padding: $sp-3 0;
+  background: rgba(11, 11, 14, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: all $dur $ease-out;
+
+  @include md {
+    top: 40px;
+    padding: $sp-4 0;
+  }
+
+  // When promo bar is hidden, no offset
+  body.no-promo & { top: 0; }
+
+  &.is-scrolled {
+    background: rgba(11, 11, 14, 0.95);
+    border-bottom-color: $border;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $sp-4;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $sp-3;
+    color: $fg;
+    font-family: $font-display;
+    font-size: $fs-lg;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    &:hover { color: $fg; }
+  }
+
+  &__logo {
+    width: 40px; height: 40px;
+    border-radius: $radius-sm;
+    object-fit: cover;
+  }
+
+  &__brand-meta {
+    display: none;
+    @include lg { display: block; }
+    font-family: $font-body;
+    font-size: $fs-xs;
+    font-weight: $weight-medium;
+    letter-spacing: 0.12em;
+    color: $fg-dim;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-top: 2px;
+  }
+
+  &__cta {
+    display: none;
+    @include lg { display: inline-flex; }
+  }
+
+  &__burger {
+    @include lg { display: none; }
+    background: transparent;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $fg;
+    cursor: pointer;
+
+    svg { width: 24px; height: 24px; }
+  }
+}
+
+// ---- Primary nav --------------------------------------------------------
+.nav {
+  display: none;
+  @include lg {
+    display: flex;
+    align-items: center;
+    gap: $sp-5;
+  }
+
+  a {
+    color: $fg-mute;
+    font-family: $font-body;
+    font-size: $fs-sm;
+    font-weight: $weight-medium;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: $sp-2 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 2px;
+      background: $accent;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform $dur $ease-out;
+    }
+
+    &:hover, &.is-active {
+      color: $fg;
+      &::after { transform: scaleX(1); }
+    }
+  }
+}
+
+// Mobile drawer
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 92px 0 0 0;  // Below promo (32) + header (~60) on mobile
+  background: rgba(11,11,14,0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: $z-nav - 1;
+  padding: $sp-6 $sp-5 $sp-8;
+  overflow-y: auto;
+
+  &.is-open { display: block; }
+  @include lg { display: none !important; }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $sp-6;
+  }
+
+  li { margin: 0; }
+
+  a {
+    display: block;
+    font-family: $font-display;
+    font-size: $fs-2xl;
+    text-transform: uppercase;
+    padding: $sp-3 0;
+    color: $fg;
+    border-bottom: 1px solid $border;
+
+    &:hover { color: $accent; }
+  }
+}
+
+// ---- Site footer --------------------------------------------------------
+.site-footer {
+  background: #000;
+  border-top: 1px solid $border;
+  padding: $sp-8 0 $sp-6;
+  color: $fg-dim;
+  font-size: $fs-sm;
+
+  &__grid {
+    display: grid;
+    gap: $sp-7;
+    grid-template-columns: 1fr;
+    @include md { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+    margin-bottom: $sp-7;
+  }
+
+  h4 {
+    font-size: $fs-xs;
+    letter-spacing: 0.18em;
+    color: $fg;
+    margin-bottom: $sp-4;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li { margin-bottom: $sp-2; }
+
+    a {
+      color: $fg-mute;
+      font-size: $fs-sm;
+
+      &:hover { color: $accent; }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid $border;
+    padding-top: $sp-5;
+    display: flex;
+    flex-direction: column;
+    gap: $sp-3;
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__legal {
+    font-size: $fs-xs;
+    color: $fg-dim;
+  }
+
+  &__social {
+    display: flex;
+    gap: $sp-3;
+
+    a {
+      width: 36px; height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: $radius-pill;
+      border: 1px solid $border;
+      color: $fg-mute;
+      transition: all $dur $ease-out;
+
+      svg { width: 16px; height: 16px; }
+
+      &:hover {
+        color: $accent;
+        border-color: $accent;
+      }
+    }
+  }
+}
+
+// ---- Hero ---------------------------------------------------------------
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: $sp-9 0 $sp-7;
+  color: $fg;
+  overflow: hidden;
+  background: $ink;
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(11,11,14,0.6) 0%, rgba(11,11,14,0.0) 30%, rgba(11,11,14,0.95) 100%),
+        linear-gradient(90deg, rgba(11,11,14,0.65) 0%, rgba(11,11,14,0.15) 100%);
+    }
+
+    img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      transform: scale(1.05);
+      animation: heroZoom 14s ease-out infinite alternate;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: $sp-2;
+    font-family: $font-body;
+    font-size: $fs-xs;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: $bone;
+    padding: $sp-2 $sp-4;
+    background: rgba($accent, 0.15);
+    border: 1px solid rgba($accent, 0.5);
+    border-radius: $radius-pill;
+    margin-bottom: $sp-5;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  &__title {
+    font-size: clamp($fs-3xl, 9vw, $fs-hero);
+    line-height: 0.92;
+    margin: 0 0 $sp-5;
+    letter-spacing: -0.02em;
+
+    .accent { color: $accent; }
+  }
+
+  &__lead {
+    font-size: clamp($fs-md, 2vw, $fs-xl);
+    color: $bone;
+    max-width: 640px;
+    margin: 0 0 $sp-6;
+    line-height: 1.5;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $sp-3;
+    flex-wrap: wrap;
+  }
+
+  // Page hero variant (smaller, for non-home pages)
+  &--page {
+    min-height: 60vh;
+    padding-top: 120px;
+    padding-bottom: $sp-7;
+    align-items: center;
+  }
+
+  // Compact variant: no full image background; used when only typography is needed
+  &--compact {
+    min-height: auto;
+    padding-top: $sp-7;       // Outer wrapper already accounts for header offset
+    padding-bottom: $sp-5;
+    align-items: flex-start;
+
+    .hero__title { font-size: clamp($fs-3xl, 6vw, $fs-4xl); }
+    .hero__lead  { max-width: 720px; }
+  }
+
+  // When .hero--compact is followed immediately by a section, kill its top padding
+  &--compact + .section { padding-top: $sp-5; }
+
+  &--mats {
+    .hero__eyebrow { background: rgba($mats, 0.15); border-color: rgba($mats, 0.5); }
+    .hero__title .accent { color: $mats; }
+  }
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.15); }
+}
+
+// ---- Stat bar -----------------------------------------------------------
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @include md { grid-template-columns: repeat(4, 1fr); }
+  gap: 1px;
+  background: $border;
+  border: 1px solid $border;
+  border-radius: $radius;
+  overflow: hidden;
+
+  &__item {
+    background: $ink-2;
+    padding: $sp-5 $sp-4;
+    text-align: center;
+  }
+
+  &__num {
+    font-family: $font-display;
+    font-size: $fs-3xl;
+    color: $accent;
+    line-height: 1;
+    margin-bottom: $sp-2;
+  }
+
+  &__label {
+    font-size: $fs-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $fg-dim;
+  }
+}
+
+// ---- Program cards ------------------------------------------------------
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include md { grid-template-columns: repeat(2, 1fr); }
+  @include lg { grid-template-columns: repeat(3, 1fr); }
+  gap: $sp-5;
+}
+
+.program-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: $ink-2;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all $dur $ease-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $accent;
+    box-shadow: $shadow-lg;
+
+    .program-card__title { color: $accent; }
+    img { transform: scale(1.05); }
+  }
+
+  &__media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: $ink-3;
+
+    img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform $dur-slow $ease-out;
+    }
+  }
+
+  &__body {
+    padding: $sp-5;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__eyebrow {
+    font-size: $fs-xs;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: $accent;
+    margin-bottom: $sp-2;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $fs-xl;
+    text-transform: uppercase;
+    color: $fg;
+    margin: 0 0 $sp-3;
+    transition: color $dur $ease-out;
+  }
+
+  &__desc {
+    font-size: $fs-sm;
+    color: $fg-mute;
+    line-height: 1.6;
+    margin: 0 0 $sp-4;
+    flex: 1;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $sp-3;
+    border-top: 1px solid $border;
+    font-size: $fs-xs;
+    color: $fg-dim;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+}
+
+// ---- Coach cards --------------------------------------------------------
+.coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @include md { grid-template-columns: repeat(3, 1fr); }
+  @include lg { grid-template-columns: repeat(4, 1fr); }
+  gap: $sp-5;
+}
+
+.coach-card {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  background: $ink-2;
+  border: 1px solid $border;
+  border-radius: $radius;
+  overflow: hidden;
+  transition: all $dur $ease-out;
+
+  &:hover {
+    border-color: $accent;
+    transform: translateY(-2px);
+
+    img { transform: scale(1.04); }
+    .coach-card__name { color: $accent; }
+  }
+
+  &__media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: $ink-3;
+    position: relative;
+
+    img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform $dur-slow $ease-out;
+      filter: grayscale(0.15);
+    }
+
+    // Legibility scrim behind the belt badge. Sits above the photo but
+    // below the badge, and only covers the bottom strip so faces (which
+    // sit in the upper two-thirds of a 4:5 portrait) stay clear.
+    &::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 38%;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0));
+      pointer-events: none;
+    }
+  }
+
+  // Anchored to the BOTTOM of the portrait, not the top — a top-left badge
+  // overlapped the coaches' faces.
+  &__belt {
+    position: absolute;
+    bottom: $sp-3; left: $sp-3;
+    z-index: 1;
+    font-size: 0.625rem;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(0,0,0,0.7);
+    color: $fg;
+    padding: $sp-1 $sp-2;
+    border-radius: $radius-sm;
+    border: 1px solid rgba($fg,0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  &__body {
+    padding: $sp-4;
+  }
+
+  &__role {
+    font-size: 0.6875rem;
+    font-weight: $weight-bold;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $fg-dim;
+    margin-bottom: $sp-2;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: $fs-lg;
+    text-transform: uppercase;
+    color: $fg;
+    margin: 0 0 $sp-2;
+    transition: color $dur $ease-out;
+  }
+
+  &__bio {
+    font-size: $fs-sm;
+    color: $fg-mute;
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+// ---- Schedule grid ------------------------------------------------------
+.schedule {
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  background: $ink-2;
+  overflow: hidden;
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $sp-2;
+    padding: $sp-4 $sp-5;
+    border-bottom: 1px solid $border;
+    background: $ink-3;
+  }
+
+  &__filter {
+    padding: $sp-2 $sp-4;
+    font-size: $fs-xs;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: transparent;
+    border: 1px solid $border;
+    color: $fg-mute;
+    border-radius: $radius-pill;
+    cursor: pointer;
+    transition: all $dur $ease-out;
+
+    &:hover { color: $fg; border-color: $fg; }
+
+    &.is-active {
+      background: $accent;
+      color: #fff;
+      border-color: $accent;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    // Column count comes from the template (--schedule-days), which counts
+    // only days that actually have classes. Falls back to 7 so the grid
+    // still renders sanely if the variable is ever missing.
+    @include lg { grid-template-columns: repeat(var(--schedule-days, 7), 1fr); }
+  }
+
+  &__day {
+    border-bottom: 1px solid $border;
+    @include lg {
+      border-bottom: none;
+      border-right: 1px solid $border;
+      &:last-child { border-right: none; }
+    }
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__day-name {
+    padding: $sp-4 $sp-4 $sp-3;
+    font-family: $font-display;
+    font-size: $fs-lg;
+    text-transform: uppercase;
+    color: $fg;
+    border-bottom: 1px solid $border;
+    background: $ink-3;
+    letter-spacing: 0.04em;
+    text-align: center;
+
+    span {
+      display: block;
+      font-family: $font-body;
+      font-size: 0.625rem;
+      font-weight: $weight-medium;
+      letter-spacing: 0.18em;
+      color: $fg-dim;
+      margin-top: $sp-1;
+    }
+  }
+
+  &__day-slots {
+    flex: 1;
+    padding: $sp-3;
+    display: flex;
+    flex-direction: column;
+    gap: $sp-2;
+
+    &:empty::after {
+      content: 'Rest day';
+      display: block;
+      text-align: center;
+      padding: $sp-5 $sp-3;
+      color: $fg-dim;
+      font-size: $fs-xs;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+  }
+
+  &__slot {
+    padding: $sp-3;
+    background: $ink-3;
+    border: 1px solid transparent;
+    border-left: 3px solid $accent;
+    border-radius: $radius-sm;
+    text-decoration: none;
+    color: inherit;
+    transition: all $dur-fast $ease-out;
+
+    &:hover {
+      border-color: $accent;
+      background: lighten($ink-3, 4%);
+      transform: translateX(2px);
+    }
+
+    &--bjj         { border-left-color: $accent; }
+    &--kickboxing  { border-left-color: #2196f3; }
+    &--boxing-bootcamp { border-left-color: #ff9800; }
+    &--mma         { border-left-color: #9c27b0; }
+    &--fitness-101 { border-left-color: #4caf50; }
+    &--youth-martial-arts { border-left-color: $mats; }
+    &--open-mat    { border-left-color: $fg-mute; }
+  }
+
+  &__slot-time {
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: $fg-mute;
+    margin-bottom: 4px;
+  }
+
+  &__slot-title {
+    font-family: $font-display;
+    font-size: 0.95rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: $fg;
+    margin-bottom: 4px;
+  }
+
+  &__slot-level {
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $fg-dim;
+  }
+
+  &__slot-coach {
+    font-size: 0.625rem;
+    color: $fg-dim;
+    margin-top: 4px;
+  }
+}
+
+// ---- Two-column intro ---------------------------------------------------
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include md { grid-template-columns: 1fr 1fr; }
+  gap: $sp-7;
+  align-items: center;
+
+  &--reverse {
+    @include md {
+      .two-col__media { order: 2; }
+      .two-col__content { order: 1; }
+    }
+  }
+
+  &__media {
+    img {
+      width: 100%;
+      border-radius: $radius-lg;
+      box-shadow: $shadow;
+    }
+  }
+}
+
+// ---- CTA banner ---------------------------------------------------------
+.cta-banner {
+  position: relative;
+  padding: $sp-9 0;
+  background: linear-gradient(135deg, $accent 0%, darken($accent, 18%) 100%);
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(255,255,255,0.15), transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(0,0,0,0.2), transparent 40%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: #fff;
+    margin-bottom: $sp-4;
+  }
+
+  p {
+    color: rgba(255,255,255,0.9);
+    font-size: $fs-md;
+    margin-bottom: $sp-5;
+  }
+
+  .btn--secondary {
+    color: #fff;
+    border-color: #fff;
+    &:hover { background: #fff; color: $accent; }
+  }
+}
+
+// ---- Foundation (MATS) cards --------------------------------------------
+.mats-pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include md { grid-template-columns: repeat(3, 1fr); }
+  gap: $sp-5;
+}
+
+.mats-pillar {
+  padding: $sp-6;
+  background: $ink-2;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  border-top: 4px solid $mats;
+
+  &__num {
+    font-family: $font-display;
+    font-size: $fs-2xl;
+    color: $mats;
+    margin-bottom: $sp-3;
+    line-height: 1;
+  }
+
+  h3 {
+    font-size: $fs-lg;
+    margin: 0 0 $sp-3;
+  }
+
+  p {
+    font-size: $fs-sm;
+    color: $fg-mute;
+    margin: 0;
+  }
+}
+
+// ---- Testimonials -------------------------------------------------------
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include md { grid-template-columns: repeat(2, 1fr); }
+  gap: $sp-5;
+}
+
+.testimonial {
+  padding: $sp-6;
+  background: $ink-2;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  position: relative;
+
+  &::before {
+    content: '“';
+    position: absolute;
+    top: 12px; left: 16px;
+    font-family: $font-display;
+    font-size: 6rem;
+    color: rgba($accent, 0.25);
+    line-height: 1;
+  }
+
+  blockquote {
+    padding: 0;
+    margin: 0 0 $sp-4;
+    background: none;
+    border: none;
+    font-style: normal;
+    color: $fg;
+    font-size: $fs-md;
+    line-height: 1.6;
+    padding-left: $sp-6;
+  }
+
+  cite {
+    display: block;
+    padding-left: $sp-6;
+    font-style: normal;
+    font-weight: $weight-bold;
+    color: $fg;
+    font-size: $fs-sm;
+
+    span {
+      display: block;
+      color: $fg-dim;
+      font-weight: $weight-regular;
+      font-size: $fs-xs;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+  }
+}
+
+// ---- Events list --------------------------------------------------------
+.events-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $sp-5;
+}
+
+.event-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include md { grid-template-columns: 200px 1fr auto; }
+  gap: $sp-5;
+  padding: $sp-5;
+  background: $ink-2;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  text-decoration: none;
+  color: inherit;
+  transition: all $dur $ease-out;
+  align-items: center;
+
+  &:hover {
+    border-color: $accent;
+    transform: translateY(-2px);
+    .event-row__title { color: $accent; }
+  }
+
+  &--past { opacity: 0.65; }
+
+  &__date {
+    font-family: $font-display;
+    text-transform: uppercase;
+
+    .day {
+      display: block;
+      font-size: $fs-3xl;
+      color: $accent;
+      line-height: 1;
+    }
+    .month-year {
+      display: block;
+      font-size: $fs-xs;
+      letter-spacing: 0.14em;
+      color: $fg-dim;
+      margin-top: $sp-2;
+    }
+  }
+
+  &__body {
+    h3 { font-size: $fs-lg; margin: 0 0 $sp-2; }
+    p  { font-size: $fs-sm; color: $fg-mute; margin: 0 0 $sp-2; }
+  }
+
+  &__meta {
+    font-size: $fs-xs;
+    color: $fg-dim;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    span { display: block; margin-bottom: 2px; }
+  }
+
+  &__cta {
+    align-self: center;
+    justify-self: end;
+  }
+}
+
+// ---- RSVP host badge (Partiful / Luma / Eventbrite) --------------------
+.rsvp-badge {
+  display: inline-block;
+  margin-top: $sp-2;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: $weight-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: $radius-pill;
+  border: 1px solid currentColor;
+  line-height: 1.2;
+
+  &--partiful   { color: #ff6b9d; }   // Partiful-ish pink
+  &--luma       { color: #7b9fff; }   // Luma blue
+  &--eventbrite { color: #f97316; }   // Eventbrite orange
+}
+
+// ---- Members-only calendar page ----------------------------------------
+.members-explainer {
+  padding: $sp-5 $sp-6;
+  background: $ink-2;
+  border: 1px solid $border;
+  border-left: 4px solid $mats;
+  border-radius: $radius;
+  margin-bottom: $sp-6;
+
+  p {
+    color: $fg-mute;
+    margin: $sp-2 0 0;
+    font-size: $fs-md;
+    line-height: 1.6;
+  }
+  strong { color: $fg; }
+}
+
+.members-calendar-wrap {
+  display: grid;
+  gap: $sp-5;
+}
+
+.members-fallback {
+  padding: $sp-6;
+  background: $ink-2;
+  border: 1px solid $border;
+  border-radius: $radius;
+  color: $fg-mute;
+
+  h2 {
+    margin: 0 0 $sp-3;
+    font-size: $fs-xl;
+    color: $fg;
+  }
+
+  ol {
+    padding-left: 1.25rem;
+    margin: $sp-3 0 $sp-5;
+    line-height: 1.7;
+
+    li { margin-bottom: $sp-2; }
+    strong { color: $fg; }
+  }
+
+  &__cta {
+    display: flex;
+    gap: $sp-3;
+    flex-wrap: wrap;
+    margin: $sp-4 0;
+  }
+
+  &__note {
+    margin: $sp-5 0 0;
+    padding-top: $sp-4;
+    border-top: 1px solid $border;
+    font-size: $fs-sm;
+    color: $fg-dim;
+
+    a { color: $accent; }
+  }
+}
+
+// Inline members CTA used on /events/ page
+.members-cta {
+  display: grid;
+  gap: $sp-5;
+  align-items: center;
+  padding: $sp-6;
+  background: linear-gradient(135deg, $ink-2 0%, $ink-3 100%);
+  border: 1px solid $border;
+  border-left: 4px solid $mats;
+  border-radius: $radius;
+
+  @include md { grid-template-columns: 1fr auto; }
+
+  h2 { margin: 0 0 $sp-3; font-size: $fs-2xl; }
+}
+
+// ---- Pricing / get-started ---------------------------------------------
+.trial-card {
+  background: linear-gradient(165deg, $ink-2 0%, $ink-3 100%);
+  border: 1px solid $border;
+  border-radius: $radius-xl;
+  padding: $sp-7;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba($accent, 0.25), transparent 70%);
+    pointer-events: none;
+  }
+
+  h2 { margin-top: 0; }
+
+  .price {
+    font-family: $font-display;
+    font-size: clamp($fs-3xl, 6vw, $fs-5xl);
+    color: $accent;
+    line-height: 1;
+    margin: $sp-4 0 $sp-3;
+  }
+
+  .price-subtitle {
+    font-size: $fs-sm;
+    color: $fg-dim;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: $sp-6 0;
+
+    li {
+      padding: $sp-3 0;
+      border-bottom: 1px solid $border;
+      display: flex;
+      align-items: flex-start;
+      gap: $sp-3;
+
+      &::before {
+        content: '→';
+        color: $accent;
+        font-weight: $weight-bold;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+// ---- Form ---------------------------------------------------------------
+.form {
+  &__group {
+    margin-bottom: $sp-4;
+  }
+
+  &__label {
+    display: block;
+    font-size: $fs-xs;
+    font-weight: $weight-bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $fg-mute;
+    margin-bottom: $sp-2;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    width: 100%;
+    padding: $sp-3 $sp-4;
+    background: $ink-3;
+    color: $fg;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    transition: border-color $dur $ease-out, background $dur $ease-out;
+
+    &::placeholder { color: $fg-dim; }
+
+    &:focus {
+      outline: none;
+      border-color: $accent;
+      background: lighten($ink-3, 2%);
+    }
+  }
+
+  &__textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  &__hint {
+    font-size: $fs-xs;
+    color: $fg-dim;
+    margin-top: $sp-2;
+  }
+}
+
+// ---- Map ----------------------------------------------------------------
+.map {
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid $border;
+  aspect-ratio: 16 / 9;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: invert(0.9) hue-rotate(180deg);
+  }
+}
+
+// ---- Single-coach hero --------------------------------------------------
+.coach-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include md { grid-template-columns: 1fr 1.5fr; }
+  gap: $sp-7;
+  align-items: start;
+  padding-top: $sp-4;
+
+  &__photo {
+    border-radius: $radius-lg;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    box-shadow: $shadow-lg;
+    max-height: 700px;
+
+    img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  }
+
+  &__meta-list {
+    list-style: none;
+    padding: 0;
+    margin: $sp-5 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    @include sm { grid-template-columns: 1fr 1fr; }
+    gap: $sp-3;
+  }
+
+  &__meta-item {
+    padding: $sp-3 $sp-4;
+    background: $ink-2;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    border-left: 3px solid $accent;
+
+    dt {
+      font-size: $fs-xs;
+      font-weight: $weight-bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: $fg-dim;
+      margin-bottom: $sp-1;
+    }
+    dd {
+      font-size: $fs-sm;
+      color: $fg;
+      margin: 0;
+    }
+  }
+}
+
+// ---- Misc ---------------------------------------------------------------
+.divider-line {
+  height: 1px;
+  background: $border;
+  margin: $sp-7 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: $sp-7;
+
+  h2 { margin-top: 0; }
+  p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: $fg-mute;
+  }
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $sp-2;
+  margin: $sp-4 0;
+
+  &__item {
+    padding: $sp-2 $sp-3;
+    background: $ink-2;
+    border: 1px solid $border;
+    border-radius: $radius-pill;
+    font-size: $fs-xs;
+    color: $fg-mute;
+    letter-spacing: 0.06em;
+  }
+}

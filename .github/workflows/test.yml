@@ -1,0 +1,90 @@
+# =========================================================================
+# Run the test suite on every push and pull request.
+#
+# This means the checks run even if nobody installs Playwright locally —
+# a broken schedule or a mobile layout regression gets caught before it
+# reaches the live site.
+#
+# Two jobs, cheapest first:
+#   schedule-data  ~15 s — validates _data/schedule.yml (no browser needed)
+#   browser        ~2 m  — builds the site, runs content + 4 device profiles
+# =========================================================================
+
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  schedule-data:
+    name: Schedule data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install pyyaml
+
+      - name: Validate _data/schedule.yml
+        run: python tests/crosscheck_schedule.py
+
+  browser:
+    name: Browser (content + 4 devices)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install test deps
+        run: npm ci || npm install
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: pw-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package.json') }}
+
+      - name: Install Chromium
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install system deps (cached browser)
+        if: steps.pw-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      # playwright.config.js starts `jekyll serve` itself via `webServer`,
+      # and CI sets reuseExistingServer:false, so no manual server step.
+      - name: Run Playwright
+        run: npx playwright test
+        env:
+          CI: 'true'
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14

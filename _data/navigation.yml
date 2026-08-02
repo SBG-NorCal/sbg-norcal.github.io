@@ -1,0 +1,34 @@
+# =========================================================================
+# Top navigation. Order matters. CTA renders separately, on the right.
+# =========================================================================
+
+primary:
+  - { label: "About",     url: "/about/" }
+  - { label: "Programs",  url: "/programs/" }
+  - { label: "Schedule",  url: "/schedule/" }
+  - { label: "Coaches",   url: "/coaches/" }
+  - { label: "MATS",      url: "/mats/" }
+  - { label: "Events",    url: "/events/" }
+  - { label: "Contact",   url: "/contact/" }
+
+cta:
+  label: "Free Trial"
+  url: "/get-started/"
+
+footer:
+  train_with_us:
+    - { label: "Programs",  url: "/programs/" }
+    - { label: "Schedule",  url: "/schedule/" }
+    - { label: "Coaches",   url: "/coaches/" }
+    - { label: "Get Started — 10 Day Trial", url: "/get-started/" }
+  give_back:
+    - { label: "About MATS",        url: "/mats/" }
+    - { label: "Donate",            url: "/mats/#donate" }
+    - { label: "Become a Partner",  url: "/mats/#partners" }
+    - { label: "Sponsor a Youth Athlete", url: "/mats/#sponsor" }
+  about_us:
+    - { label: "Our Story",   url: "/about/" }
+    - { label: "Lineage",     url: "/about/#lineage" }
+    - { label: "Events",      url: "/events/" }
+    - { label: "Members",     url: "/members/" }
+    - { label: "Contact",     url: "/contact/" }

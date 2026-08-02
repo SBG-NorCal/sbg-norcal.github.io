@@ -1,0 +1,47 @@
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="{{ '/' | relative_url }}" class="site-header__brand" aria-label="SBG NorCal home">
+        <img src="{{ '/assets/images/logo-sbg.jpg' | relative_url }}" alt="" class="site-header__logo" />
+        <div>
+          <div>{{ site.data.site.brand.gym_name }}</div>
+          <div class="site-header__brand-meta">Powered by {{ site.data.site.brand.foundation_name }}</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        {% for item in site.data.navigation.primary %}
+          {% assign active = false %}
+          {% if page.url == item.url %}{% assign active = true %}{% endif %}
+          {% if item.url != '/' and page.url contains item.url %}{% assign active = true %}{% endif %}
+          <a href="{{ item.url | relative_url }}"{% if active %} class="is-active"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+
+      <a href="{{ site.data.navigation.cta.url | relative_url }}" class="btn btn--primary site-header__cta">
+        {{ site.data.navigation.cta.label }} <span class="arrow">→</span>
+      </a>
+
+      <button type="button" class="site-header__burger" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false" id="burger">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="container">
+    <ul>
+      {% for item in site.data.navigation.primary %}
+      <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+      {% endfor %}
+    </ul>
+    <a href="{{ site.data.navigation.cta.url | relative_url }}" class="btn btn--primary btn--block btn--lg">
+      {{ site.data.navigation.cta.label }} <span class="arrow">→</span>
+    </a>
+  </div>
+</div>

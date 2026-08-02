@@ -1,0 +1,194 @@
+---
+layout: default
+title: "MATS — Martial Arts Training and Scholarship"
+description: "MATS is a 501(c)(3) using martial arts to support underserved youth and young adults in the East Bay. Founded 2013. Powering SBG NorCal."
+permalink: /mats/
+---
+
+<header class="hero hero--page hero--mats">
+  <div class="hero__media">
+    <img src="{{ '/assets/images/gallery/mats-1.jpg' | relative_url }}" alt="" loading="eager" />
+  </div>
+  <div class="container hero__content">
+    <span class="hero__eyebrow">501(c)(3) Foundation · Est. 2013</span>
+    <h1 class="hero__title">Uniting martial artists to build <span class="accent">stronger communities.</span></h1>
+    <p class="hero__lead">
+      MATS (Martial Arts Training and Scholarship) is the East Bay 501(c)(3) that powers
+      SBG NorCal — and provides scholarships, summer camps, and long-term mentorship to
+      underserved kids and young adults across our community.
+    </p>
+    <div class="hero__actions">
+      <a href="#donate" class="btn btn--mats btn--lg">Donate (tax-deductible) <span class="arrow">→</span></a>
+      <a href="#sponsor" class="btn btn--secondary btn--lg">Sponsor an Athlete</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container container--narrow">
+    <span class="eyebrow eyebrow--mats">Our mission</span>
+    <h2>To support and nurture underserved children and young adults — who can realize enormous benefits from martial arts training and a supportive community.</h2>
+
+    <p>
+      MATS was founded in <strong>2013 by a group of lifelong, committed martial artists from the East
+      Bay</strong>. Our volunteers and coaches include former police officers, teachers,
+      competitive athletes, and people from all walks of life. We teach kids practical
+      skills not just for martial arts but for life outside the gym — like hard work,
+      respect, and dedication.
+    </p>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow eyebrow--mats">How MATS works</span>
+      <h2>Three pillars. One mission.</h2>
+    </div>
+
+    <div class="mats-pillars">
+      <div class="mats-pillar">
+        <div class="mats-pillar__num">01</div>
+        <h3>Scholarships</h3>
+        <p>
+          MATS provides martial-arts scholarships to underserved youth — both summer
+          camps and extended year-round programs. Scholarship athletes train at local
+          gyms with mentors and coaches who hold them to high standards.
+        </p>
+      </div>
+
+      <div class="mats-pillar">
+        <div class="mats-pillar__num">02</div>
+        <h3>Academic Support</h3>
+        <p>
+          We expect MATS members to maintain good grades, participate in regular
+          training, and hone their life skills. Want to train more? Show us a
+          commitment to academics and other responsibilities first.
+        </p>
+      </div>
+
+      <div class="mats-pillar">
+        <div class="mats-pillar__num">03</div>
+        <h3>Career Preparation</h3>
+        <p>
+          Resume writing, job interviewing, reliability, and showing up — the
+          adult-life basics that get taken for granted. MATS pairs sponsored
+          athletes with mentors who help them transition into the workforce.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+      <div class="two-col__media">
+        <img src="{{ '/assets/images/gallery/mats-3.jpg' | relative_url }}" alt="MATS summer camp" />
+      </div>
+      <div class="two-col__content">
+        <span class="eyebrow eyebrow--mats">A bridge to adult life</span>
+        <h2>The long-term relationship that changes outcomes.</h2>
+        <p>
+          Many scholarship programs offer a weeklong camp and then send young adults back
+          into the world. <strong>MATS fosters sponsored athletes over the long haul</strong>
+          so they can develop meaningful relationships with adults, coaches, and mentors.
+        </p>
+        <p>
+          When a long-term relationship is established, young adults have a supportive
+          framework that helps them address their life challenges — finishing school,
+          applying for jobs, starting careers, and growing into the kind of adults their
+          younger selves needed to see.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="partners">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow eyebrow--mats">Our partners</span>
+      <h2>We don't do this alone.</h2>
+      <p>MATS partners with social-services agencies, schools, and the global SBG network to reach kids who need us most.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr; gap:1rem;">
+      {% for p in site.data.partners.partners %}
+      <div style="padding:1.5rem; background:#1f1f25; border:1px solid #2a2a32; border-left: 3px solid #e4b73a; border-radius:8px;">
+        <h3 style="margin:0 0 0.5rem; font-size:1.15rem;">
+          {% if p.url != "" %}<a href="{{ p.url }}" rel="noopener" target="_blank" style="color:#f5f1ea;">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}
+        </h3>
+        <p style="margin:0; color:#c9c2b6; font-size:0.95rem;">{{ p.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" id="sponsor">
+  <div class="container container--narrow">
+    <span class="eyebrow eyebrow--mats">Get sponsored</span>
+    <h2>How do young adults join MATS?</h2>
+    <p>
+      MATS athletes are referred by their school, social-service agencies, or community
+      members. Most start with an invitation to join an extended summer camp where
+      they're exposed to training and our program. They can then join an extended summer
+      program before transitioning into a long-term relationship.
+    </p>
+    <p>
+      <strong>Summer camp runs three days a week, three hours a day.</strong> Young adults
+      train Brazilian Jiu-Jitsu, help around a gym, and work on their mindfulness with a
+      certified trainer.
+    </p>
+    <p>If you'd like to refer someone to MATS, please reach out:</p>
+    <a href="{{ '/contact/' | relative_url }}?subject=MATS%20Referral" class="btn btn--mats btn--lg">Refer a Young Person <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<section class="section" id="donate">
+  <div class="container">
+    <div class="trial-card" style="text-align:center;">
+      <span class="eyebrow eyebrow--mats">Donate to MATS</span>
+      <h2>Every dollar trains a kid.</h2>
+      <p style="max-width:640px; margin:0 auto 1.5rem;">
+        MATS is a 501(c)(3) — your donation is fully tax-deductible. Because all our
+        coaches are volunteers and our overhead is run through SBG NorCal, your
+        contribution goes directly into training, scholarships, and mentorship for
+        youth in the East Bay.
+      </p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; max-width: 720px; margin: 2rem auto;">
+        <div style="padding:1.25rem; background:#1f1f25; border:1px solid #2a2a32; border-radius:8px;">
+          <div style="font-family: Anton, sans-serif; font-size:2rem; color:#e4b73a; line-height:1;">$25</div>
+          <div style="color:#c9c2b6; font-size:0.85rem; margin-top:0.5rem;">One week of after-school training for a youth athlete</div>
+        </div>
+        <div style="padding:1.25rem; background:#1f1f25; border:1px solid #2a2a32; border-radius:8px;">
+          <div style="font-family: Anton, sans-serif; font-size:2rem; color:#e4b73a; line-height:1;">$50<span style="font-size:1rem;">/mo</span></div>
+          <div style="color:#c9c2b6; font-size:0.85rem; margin-top:0.5rem;">One youth athlete's entire year of training</div>
+        </div>
+        <div style="padding:1.25rem; background:#1f1f25; border:1px solid #2a2a32; border-radius:8px;">
+          <div style="font-family: Anton, sans-serif; font-size:2rem; color:#e4b73a; line-height:1;">$500</div>
+          <div style="color:#c9c2b6; font-size:0.85rem; margin-top:0.5rem;">A full summer camp scholarship</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; margin-top:2rem;">
+        <a href="{{ site.data.site.donate.venmo_url }}" rel="noopener" target="_blank" class="btn btn--mats btn--xl">Donate via Venmo <span class="arrow">→</span></a>
+        <a href="mailto:{{ site.data.site.contact.mats_email }}?subject=MATS%20Donation" class="btn btn--secondary btn--lg">Other ways to give</a>
+      </div>
+
+      <p style="font-size:0.95rem; color:#c9c2b6; margin-top:1rem;">
+        Venmo us at <strong style="color:#e4b73a;">{{ site.data.site.donate.venmo_handle }}</strong> &mdash;
+        please add a note so we can send you a receipt.
+      </p>
+
+      <p style="font-size:0.85rem; color:#8b8579; margin-top:1.5rem;">
+        MATS — Martial Arts Training and Scholarship — is a registered US 501(c)(3) nonprofit
+        (founded 2013, recognized {{ site.data.site.brand.foundation_irs_recognition }}) &middot;
+        <strong style="color:#c9c2b6;">EIN {{ site.data.site.brand.mats_ein }}</strong>.<br/>
+        Donations are tax-deductible to the extent allowed by law.
+      </p>
+    </div>
+  </div>
+</section>

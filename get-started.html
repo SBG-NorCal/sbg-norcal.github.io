@@ -1,0 +1,130 @@
+---
+layout: default
+title: Get Started — 10-Day Free Trial
+description: "Try SBG NorCal free for 10 days. Take as many classes as you like — Brazilian Jiu-Jitsu, MMA, Kickboxing, Boxing, Fitness, or Youth. No commitment."
+permalink: /get-started/
+---
+
+<header class="hero hero--page">
+  <div class="hero__media">
+    <img src="{{ '/assets/images/programs/bjj.jpg' | relative_url }}" alt="" loading="eager" />
+  </div>
+  <div class="container hero__content">
+    <span class="hero__eyebrow">Be our guest · 10 days · Free</span>
+    <h1 class="hero__title">Show up. We'll handle the rest.</h1>
+    <p class="hero__lead">
+      Ten days. As many classes as you can take. One short orientation. Coaches who
+      watch out for you. After your first class, we'll plan your next one. That's it.
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div style="display:grid; grid-template-columns: 1fr; gap:2.5rem; align-items: start;">
+      <div style="display:grid; grid-template-columns: 1fr; gap:2.5rem;">
+        <div class="trial-card">
+          <span class="eyebrow">What's included</span>
+          <h2>10 Days — Free</h2>
+          <div class="price">$0</div>
+          <div class="price-subtitle">No card. No commitment.</div>
+          <ul>
+            <li>Try as many classes as you want over 10 consecutive days</li>
+            <li>Short orientation before your first class</li>
+            <li>Loaner gear available (Gi, gloves, shin guards)</li>
+            <li>After your first session, a coach plans your next visit with you</li>
+            <li>Mat space, locker, showers</li>
+          </ul>
+          <a href="#trial-form" class="btn btn--primary btn--xl btn--block">Start my 10 days <span class="arrow">→</span></a>
+        </div>
+
+        <div style="background:#16161b; border:1px solid #2a2a32; border-radius:16px; padding:2rem;">
+          <span class="eyebrow">FAQs</span>
+          <h2 style="margin-top:0.5rem;">Common questions</h2>
+
+          <div style="margin-top:1.5rem;">
+            <h3 style="font-size:1.1rem; color:#f5f1ea;">Do I need to be in shape first?</h3>
+            <p>No. Our classes are beginner-friendly — most members started with zero experience and zero "fitness base." You set the pace, the coach watches over you, and you'll walk out energized.</p>
+
+            <h3 style="font-size:1.1rem; color:#f5f1ea;">What should I wear?</h3>
+            <p>For grappling: anything you can move and sweat in (we'll loan you a Gi). For striking: athletic clothes; we'll loan you gloves and shin guards for your trial.</p>
+
+            <h3 style="font-size:1.1rem; color:#f5f1ea;">I'm nervous about sparring / rolling.</h3>
+            <p>Don't be — you won't spar on your first class. Sparring is introduced gradually, only when the coach decides you have the skills and partner-control to do it safely. SBG NorCal's whole approach is "Aliveness within safety."</p>
+
+            <h3 style="font-size:1.1rem; color:#f5f1ea;">I have an injury / I'm older. Is this for me?</h3>
+            <p>Yes. Our oldest active member is in their 70s. Our coaches scale everything — let us know what you're working around, and we'll work with it.</p>
+
+            <h3 style="font-size:1.1rem; color:#f5f1ea;">What about kids?</h3>
+            <p>We offer youth programs starting at age 3 (Sticky Monkey, parent + toddler). See our <a href="{{ '/programs/youth-martial-arts/' | relative_url }}" style="color:#d22020;">Youth Martial Arts page</a>.</p>
+
+            <h3 style="font-size:1.1rem; color:#f5f1ea;">Do you offer financial aid?</h3>
+            <p>Yes — through our partner foundation MATS. <a href="{{ '/mats/' | relative_url }}" style="color:#d22020;">Learn about MATS scholarships</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="trial-form" style="background:#16161b; border:1px solid #2a2a32; border-radius:16px; padding:2rem; scroll-margin-top: 100px;">
+        <span class="eyebrow">Claim my trial</span>
+        <h2 style="margin-top:0.5rem;">Tell us about you</h2>
+        <p style="color:#c9c2b6;">
+          Fill this out and we'll email you our full guest schedule and walk you through your first visit.
+          Or just <a href="tel:{{ site.data.site.contact.phone_link }}" style="color:#d22020;">call us at {{ site.data.site.contact.phone }}</a> &mdash; humans answer.
+        </p>
+
+        {% assign gf = site.data.site.google_form %}
+        {%- comment -%}
+          Submits directly to the gym's existing Google Form
+          "CB Inquiries ~ SBG NorCal". Submissions land in the same Google
+          Sheet the front desk already monitors. No iframe — fully styled.
+          JS path: fetch() in no-cors mode keeps user on our page + shows
+          inline thank-you. No-JS path: form submits natively to Google,
+          user lands on Google's confirmation page (one extra click back).
+          Either way, every field carries the correct entry.* ID so Google
+          captures the data either way.
+        {%- endcomment -%}
+        <form id="trial-form-el"
+              class="form"
+              method="POST"
+              action="{{ gf.action }}"
+              target="_blank"
+              style="margin-top:1.5rem;">
+          <div class="form__group">
+            <label class="form__label" for="full_name">Your name <span aria-hidden="true" style="color:#d22020;">*</span></label>
+            <input class="form__input" type="text" id="full_name" name="{{ gf.fields.name }}" required autocomplete="name" placeholder="First and last" />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="email">Email <span aria-hidden="true" style="color:#d22020;">*</span></label>
+            <input class="form__input" type="email" id="email" name="{{ gf.fields.email }}" required autocomplete="email" />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="phone">Phone <span aria-hidden="true" style="color:#d22020;">*</span></label>
+            <input class="form__input" type="tel" id="phone" name="{{ gf.fields.phone }}" required autocomplete="tel" />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="program">Most interested in <span aria-hidden="true" style="color:#d22020;">*</span></label>
+            <select class="form__select" id="program" name="{{ gf.fields.program }}" required>
+              {%- assign sorted_programs = site.programs | sort: 'order' -%}
+              {%- for p in sorted_programs -%}
+                {%- assign mapped = gf.program_options[p.slug] | default: gf.program_default -%}
+                <option value="{{ mapped }}">{{ p.title }}</option>
+              {%- endfor -%}
+            </select>
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="notes">Anything we should know? <span aria-hidden="true" style="color:#d22020;">*</span></label>
+            <textarea class="form__textarea" id="notes" name="{{ gf.fields.message }}" required rows="4" placeholder="Injuries, prior experience, schedule constraints — anything that helps us help you."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--xl btn--block">Send <span class="arrow">→</span></button>
+          <p class="form__hint">By submitting, you agree we may contact you about your trial. We don't sell or share your info, ever.</p>
+        </form>
+
+        <div id="trial-form-success" hidden style="margin-top:1.5rem; padding:1.5rem; background:#0f2410; border:1px solid #1e5a23; border-radius:12px;">
+          <h3 style="margin:0 0 0.5rem; color:#7be38a;">Got it — we'll be in touch.</h3>
+          <p style="margin:0; color:#c9c2b6;">A coach will reach out within one business day with your guest schedule and a quick welcome note. In the meantime, feel free to drop in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

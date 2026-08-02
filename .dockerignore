@@ -1,0 +1,20 @@
+# Files NOT copied into the Docker image
+# Keeps the image small and build cache hits high.
+
+_site
+.jekyll-cache
+.sass-cache
+.jekyll-metadata
+vendor
+node_modules
+.bundle
+.git
+.github
+.gitignore
+.gitattributes
+.editorconfig
+docs
+README.md
+docker-compose.yml
+.dockerignore
+Dockerfile

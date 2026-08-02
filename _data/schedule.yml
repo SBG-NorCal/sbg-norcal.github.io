@@ -1,0 +1,83 @@
+# =========================================================================
+# Weekly class schedule. Rendered as a Mon-Sun grid on /schedule/.
+#
+# THIS FILE IS THE SOURCE OF TRUTH for the class schedule. Edit it directly.
+#
+# Each entry:
+#   day:     Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday
+#   start:   24-hr "HH:MM"   <-- 24-HOUR. 6:30 PM is "18:30", NOT "06:30".
+#   end:     24-hr "HH:MM"
+#   program: slug from _programs (must match)
+#   level:   short label shown under the program name on the grid.
+#            We use the gym's real class name here (Explorers, Teen/Tween,
+#            Leadership, Kettlebell 101/201, ...).
+#
+# ⚠️ Times are 24-HOUR. Writing "06:30" for a 6:30 pm class is how the
+# schedule once ended up with phantom duplicate morning classes.
+# Run `python tests/crosscheck_schedule.py` after editing — it catches
+# AM/PM mix-ups, duplicates, and bad program slugs.
+#
+# Coaches are deliberately NOT listed per class — who covers a given slot
+# changes week to week. The "Who you'll train with" list on each program
+# page comes from the `programs:` field in _coaches/<slug>.md instead.
+#
+# Standard class lengths (useful sanity check when editing):
+#   Foundations / Integrations ....... 75 min
+#   Explorers / Teen/Tween ........... 60 min
+#   Kettlebell / Starting Strength ... 60 min
+#   Boxing Boot Camp / Women's SD .... 45 min
+#   Leadership / Sticky Monkey ....... 30 min
+# =========================================================================
+
+note: >-
+  Times are shown in 24-hour format. Evening classes Monday–Friday;
+  Saturday is a morning/midday block. No Sunday classes.
+
+classes:
+  # ---- Monday ------------------------------------------------------------
+  - { day: Monday,    start: "17:00", end: "18:00", program: youth-martial-arts,  level: "Explorers (Youth BJJ)" }
+  - { day: Monday,    start: "18:00", end: "18:30", program: youth-martial-arts,  level: "Leadership (Youth BJJ)" }
+  - { day: Monday,    start: "18:15", end: "19:00", program: boxing-bootcamp,     level: "Pillars" }
+  - { day: Monday,    start: "18:15", end: "19:00", program: fitness-101,         level: "Women's Self-Defense" }
+  - { day: Monday,    start: "18:30", end: "19:45", program: brazilian-jiu-jitsu, level: "Foundations" }
+  - { day: Monday,    start: "19:30", end: "20:45", program: brazilian-jiu-jitsu, level: "Integrations" }
+
+  # ---- Tuesday -----------------------------------------------------------
+  - { day: Tuesday,   start: "11:30", end: "13:00", program: brazilian-jiu-jitsu, level: "Integrations (BJJ/MMA)" }
+  - { day: Tuesday,   start: "17:00", end: "18:00", program: youth-martial-arts,  level: "Teen/Tween (Teen BJJ)" }
+  - { day: Tuesday,   start: "17:15", end: "18:15", program: fitness-101,         level: "Kettlebell 101/201" }
+  - { day: Tuesday,   start: "17:30", end: "18:15", program: boxing-bootcamp,     level: "Pillars" }
+  - { day: Tuesday,   start: "18:30", end: "19:45", program: kickboxing,          level: "Foundations" }
+  - { day: Tuesday,   start: "18:30", end: "19:45", program: mma,                 level: "Integrations" }
+  - { day: Tuesday,   start: "19:30", end: "20:45", program: kickboxing,          level: "Integrations" }
+
+  # ---- Wednesday ---------------------------------------------------------
+  - { day: Wednesday, start: "17:00", end: "18:00", program: youth-martial-arts,  level: "Explorers (Youth BJJ)" }
+  - { day: Wednesday, start: "18:00", end: "18:30", program: youth-martial-arts,  level: "Leadership (Youth BJJ)" }
+  - { day: Wednesday, start: "18:15", end: "19:00", program: boxing-bootcamp,     level: "Pillars" }
+  - { day: Wednesday, start: "18:30", end: "19:45", program: brazilian-jiu-jitsu, level: "Foundations" }
+  - { day: Wednesday, start: "19:30", end: "20:45", program: brazilian-jiu-jitsu, level: "Integrations" }
+
+  # ---- Thursday ----------------------------------------------------------
+  - { day: Thursday,  start: "17:00", end: "18:00", program: youth-martial-arts,  level: "Teen/Tween (Teen BJJ)" }
+  - { day: Thursday,  start: "17:15", end: "18:15", program: fitness-101,         level: "Kettlebell 101/201" }
+  - { day: Thursday,  start: "17:30", end: "18:15", program: boxing-bootcamp,     level: "Pillars" }
+  - { day: Thursday,  start: "18:30", end: "19:45", program: kickboxing,          level: "Foundations" }
+  - { day: Thursday,  start: "18:30", end: "19:45", program: mma,                 level: "Foundations" }
+  - { day: Thursday,  start: "19:30", end: "20:45", program: kickboxing,          level: "Integrations" }
+
+  # ---- Friday ------------------------------------------------------------
+  - { day: Friday,    start: "18:00", end: "19:30", program: open-mat,            level: "All Levels — approval to roll" }
+
+  # ---- Saturday ----------------------------------------------------------
+  - { day: Saturday,  start: "09:30", end: "10:00", program: youth-martial-arts,  level: "Sticky Monkey" }
+  - { day: Saturday,  start: "09:45", end: "10:45", program: fitness-101,         level: "Starting Strength Circuit" }
+  - { day: Saturday,  start: "10:00", end: "11:00", program: youth-martial-arts,  level: "Explorers (Youth BJJ)" }
+  - { day: Saturday,  start: "10:15", end: "11:30", program: brazilian-jiu-jitsu, level: "Foundations" }
+  - { day: Saturday,  start: "10:45", end: "11:30", program: boxing-bootcamp,     level: "Pillars" }
+  - { day: Saturday,  start: "11:00", end: "11:30", program: youth-martial-arts,  level: "Leadership (Youth BJJ)" }
+  - { day: Saturday,  start: "11:30", end: "12:45", program: brazilian-jiu-jitsu, level: "Integrations" }
+  - { day: Saturday,  start: "12:00", end: "13:00", program: kickboxing,          level: "KB Sparring" }
+
+  # ---- Sunday ------------------------------------------------------------
+  # No Sunday classes.

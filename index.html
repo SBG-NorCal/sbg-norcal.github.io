@@ -1,0 +1,235 @@
+---
+layout: default
+title: "The Bay Area's home for Brazilian Jiu-Jitsu, MMA & Striking"
+description: "SBG NorCal offers classes in BJJ, MMA, Kickboxing, Boxing, and Fitness for all ages and levels. Powered by MATS (Martial Arts Training and Scholarship), a 501(c)(3) building stronger communities through martial arts."
+permalink: /
+no_header_pad: true
+---
+
+{% comment %} ============================================================
+   HERO
+   ============================================================ {% endcomment %}
+<section class="hero">
+  <div class="hero__media">
+    <img src="{{ '/assets/images/hero/home-hero.jpg' | relative_url }}" alt="Training at SBG NorCal" loading="eager" />
+  </div>
+  <div class="container hero__content">
+    <span class="hero__eyebrow">{{ site.data.site.brand.combined_tagline }}</span>
+    <h1 class="hero__title">
+      Function<br/>Not <span class="accent">Fantasy.</span>
+    </h1>
+    <p class="hero__lead">
+      Berkeley's home for <strong>Brazilian Jiu-Jitsu, MMA, Kickboxing, and Boxing</strong> &mdash;
+      built on Aliveness, run as a nonprofit, open to every body and every level since 2003.
+    </p>
+    <div class="hero__actions">
+      <a href="{{ '/get-started/' | relative_url }}" class="btn btn--primary btn--xl">Try 10 days free <span class="arrow">→</span></a>
+      <a href="{{ '/programs/' | relative_url }}" class="btn btn--secondary btn--xl">Explore programs</a>
+    </div>
+  </div>
+</section>
+
+{% comment %} ============================================================
+   STATS BAR
+   ============================================================ {% endcomment %}
+<section class="section section--tight section--alt">
+  <div class="container">
+    <div class="stats">
+      <div class="stats__item">
+        <div class="stats__num">{{ 'now' | date: '%Y' | minus: site.data.site.brand.established }}+</div>
+        <div class="stats__label">Years in the East Bay</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__num">12</div>
+        <div class="stats__label">Coaches on staff</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__num">7</div>
+        <div class="stats__label">Programs · Ages 3 to 70+</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__num">501(c)(3)</div>
+        <div class="stats__label">Run as a nonprofit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ============================================================
+   ABOUT SLAB
+   ============================================================ {% endcomment %}
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+      <div class="two-col__media">
+        <img src="{{ '/assets/images/hero/about-hero.jpg' | relative_url }}" alt="Coach Lily teaching a class" />
+      </div>
+      <div class="two-col__content">
+        <span class="eyebrow">About SBG NorCal</span>
+        <h2>Martial arts that work &mdash; under pressure, for real life.</h2>
+        <p>
+          We have been part of the East Bay martial arts community and a member of
+          <strong>Straight Blast Gym International</strong> since 2003. We train the most efficient
+          delivery systems of <em>Stand-Up</em>, <em>Clinch</em>, and <em>Ground</em>.
+        </p>
+        <p>
+          We're organized as a non-profit under <strong>Martial Arts Training and Scholarship (MATS)</strong>,
+          a 501(c)(3). Every coach graduates from our year-long coach's course, and every coach is a volunteer.
+          That model lets every dollar from membership go back into the gym &mdash; and into scholarships
+          for youth who could never otherwise afford to train.
+        </p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top: 1.5rem;">
+          <a href="{{ '/about/' | relative_url }}" class="btn btn--secondary">Our Story <span class="arrow">→</span></a>
+          <a href="{{ '/mats/' | relative_url }}" class="btn btn--ghost">About MATS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ============================================================
+   WHY SBG — Aliveness, Tribe, Lineage (per SBG research)
+   ============================================================ {% endcomment %}
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">The SBG way</span>
+      <h2>Three things that make us different.</h2>
+    </div>
+    <div class="mats-pillars" style="--mats: #d22020;">
+      <div class="mats-pillar" style="border-top-color: #d22020;">
+        <div class="mats-pillar__num" style="color: #d22020;">01</div>
+        <h3>Aliveness</h3>
+        <p>
+          Coined by SBG founder Matt Thornton, Aliveness is our method: every skill is
+          drilled <em>against a resisting partner</em> with timing, energy, and motion.
+          If it can't be done alive, it isn't real martial arts. Period.
+        </p>
+      </div>
+      <div class="mats-pillar" style="border-top-color: #d22020;">
+        <div class="mats-pillar__num" style="color: #d22020;">02</div>
+        <h3>The Tribe</h3>
+        <p>
+          SBG is a global "tribe" — interconnected gyms across five continents, all
+          coaching the same systems and certifying coaches the same way. Train at SBG
+          NorCal, train at any SBG gym worldwide.
+        </p>
+      </div>
+      <div class="mats-pillar" style="border-top-color: #d22020;">
+        <div class="mats-pillar__num" style="color: #d22020;">03</div>
+        <h3>Function Not Fantasy</h3>
+        <p>
+          Our motto, our standard. We don't sell belts, choreographed self-defense, or
+          "secret techniques." We teach what works — for fighting, for fitness, and
+          for the life you're trying to build.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ============================================================
+   PROGRAMS
+   ============================================================ {% endcomment %}
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Train with us</span>
+      <h2>Programs for every level</h2>
+      <p>From your first day on the mats to competition-level training &mdash; everyone gets coached, everyone gets better.</p>
+    </div>
+    <div class="programs-grid">
+      {% assign programs = site.programs | sort: 'order' %}
+      {% for program in programs %}
+        {% include program-card.html program=program %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% comment %} ============================================================
+   COACHES PREVIEW
+   ============================================================ {% endcomment %}
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Meet the team</span>
+      <h2>Coaches who actually coach</h2>
+      <p>
+        Every coach at SBG NorCal earned their position through our year-long coach's course.
+        From Olympic-level grapplers to PhD scientists, our team is here because they love teaching.
+      </p>
+    </div>
+    <div class="coaches-grid">
+      {% assign visible_coaches = site.coaches | where_exp: "c", "c.hidden != true" %}
+      {% assign featured_coaches = visible_coaches | sort: 'order' | slice: 0, 4 %}
+      {% for coach in featured_coaches %}
+        {% include coach-card.html coach=coach %}
+      {% endfor %}
+    </div>
+    <p style="text-align:center; margin-top:2.5rem;">
+      <a href="{{ '/coaches/' | relative_url }}" class="btn btn--secondary">Meet all {{ visible_coaches.size }} coaches <span class="arrow">→</span></a>
+    </p>
+  </div>
+</section>
+
+{% comment %} ============================================================
+   MATS BLOCK — Powered-by-MATS story slab
+   ============================================================ {% endcomment %}
+<section class="section section--dark">
+  <div class="container">
+    <div class="two-col two-col--reverse">
+      <div class="two-col__media">
+        <img src="{{ '/assets/images/gallery/mats-1.jpg' | relative_url }}" alt="MATS youth training" />
+      </div>
+      <div class="two-col__content">
+        <span class="eyebrow eyebrow--mats">Powered by MATS</span>
+        <h2>A gym that gives back &mdash; built in.</h2>
+        <p>
+          Every membership at SBG NorCal funds <strong>Martial Arts Training and Scholarship (MATS)</strong>,
+          our 501(c)(3) foundation. MATS uses martial arts to support underserved youth and young
+          adults across the East Bay &mdash; through summer camps, scholarship programs, and
+          long-term mentorship.
+        </p>
+        <p>
+          Founded in 2013 by lifelong martial artists, MATS partners with Berkeley Unified
+          School District, Berkeley Adult School, Alameda County Foster Youth services, and
+          Oakland's Safe Passages to deliver life-changing training to kids who otherwise
+          couldn't access it.
+        </p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top: 1.5rem;">
+          <a href="{{ '/mats/' | relative_url }}" class="btn btn--mats">Learn about MATS <span class="arrow">→</span></a>
+          <a href="{{ '/mats/#donate' | relative_url }}" class="btn btn--ghost">Donate (tax-deductible)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ============================================================
+   TESTIMONIALS
+   ============================================================ {% endcomment %}
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">From our community</span>
+      <h2>What members say</h2>
+    </div>
+    <div class="testimonials">
+      {% for t in site.data.testimonials.testimonials limit: 4 %}
+      <div class="testimonial">
+        <blockquote>{{ t.quote }}</blockquote>
+        <cite>{{ t.author }}<span>{{ t.role }}</span></cite>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% comment %} ============================================================
+   FINAL CTA
+   ============================================================ {% endcomment %}
+{% include cta-banner.html
+   title="Ten days. As many classes as you can take."
+   body="One short orientation. Coaches who watch out for you. After your first class, we'll plan your next one. That's it."
+%}

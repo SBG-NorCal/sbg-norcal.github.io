@@ -1,0 +1,105 @@
+# =========================================================================
+# Global site data. Edit these to update header/footer/contact info anywhere
+# on the site without touching templates.
+# =========================================================================
+
+brand:
+  gym_name: "SBG NorCal"
+  foundation_name: "MATS"
+  foundation_full_name: "Martial Arts Training and Scholarship"
+  combined_tagline: "SBG NorCal, powered by MATS"
+  gym_motto: "Function Not Fantasy"
+  established: 2003
+  foundation_established: 2013
+  foundation_irs_recognition: "April 1, 2017"
+  legal_structure: "501(c)(3) non-profit"
+  mats_ein: "46-4056114"
+
+contact:
+  email: "sbgnorcal.news@gmail.com"
+  mats_email: "info@baymats.org"
+  phone: "(510) 540-8283"
+  phone_link: "+15105408283"
+  address_line_1: "1450 San Pablo Avenue"
+  address_line_2: ""
+  city: "Berkeley"
+  state: "CA"
+  zip: "94702-1046"
+  country: "USA"
+  hours: |
+    Monday–Friday: 6:00 AM – 9:00 PM
+    Saturday: 9:00 AM – 1:00 PM
+    Sunday: by appointment
+  google_maps_query: "1450+San+Pablo+Avenue,+Berkeley,+CA+94702"
+  google_maps_embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.5!2d-122.2964!3d37.8755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80857e9c0ee14a59%3A0x0!2s1450%20San%20Pablo%20Ave%2C%20Berkeley%2C%20CA%2094702!5e0!3m2!1sen!2sus!4v1700000000000"
+
+# Donation destinations for MATS (rendered on /mats/#donate).
+# Venmo is the primary channel. `handle` is what donors see; `url` is where
+# the button points. venmo.com/u/<username> opens the Venmo app on phones
+# and the web profile on desktop.
+donate:
+  venmo_handle: "@MATS-1450"
+  venmo_username: "MATS-1450"
+  venmo_url: "https://venmo.com/u/MATS-1450"
+
+social:
+  - { name: "Instagram", handle: "@sbgnorcal_martialarts", url: "https://www.instagram.com/sbgnorcal_martialarts/", icon: "instagram" }
+  - { name: "Facebook",  handle: "SBG NorCal", url: "https://www.facebook.com/ModCom/", icon: "facebook" }
+  - { name: "YouTube",   handle: "SBG NorCal", url: "https://www.youtube.com/@sbgnorcal1172", icon: "youtube" }
+
+# Calendar feeds for the Events page
+calendars:
+  # PUBLIC events — anyone can see. Embed this in /events/ and the homepage.
+  google_calendar_url: "https://calendar.google.com/calendar/embed?src=sbgnorcal.news%40gmail.com"
+  # iCal feed of the same public calendar (Apple Calendar / Outlook subscribe).
+  # Google auto-publishes this when the calendar is marked "Make available to public".
+  apple_calendar_ics: "https://calendar.google.com/calendar/ical/sbgnorcal.news%40gmail.com/public/basic.ics"
+  # PRIVATE / MEMBERS-ONLY events.
+  # Create a second Google Calendar (e.g. "SBG NorCal — Members"), share it
+  # with each member by email under "Share with specific people". Members
+  # signed into Google with that email will see the events; non-members see
+  # an empty calendar. Drop the embed URL here (Settings → "Integrate calendar"
+  # → "Public URL to this calendar" — yes that wording, even though it's
+  # actually access-controlled when the calendar is private).
+  members_calendar_url: "https://calendar.google.com/calendar/embed?src=REPLACE_WITH_MEMBERS_CALENDAR_ID&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&mode=AGENDA&bgcolor=%230b0b0e&color=%23d22020"
+  # Add each member's Google account email under the calendar's "Share with
+  # specific people" with permission level "See all event details". Keep
+  # this list in sync with your roster — Google enforces access, we just
+  # render the iframe.
+
+# Google Form intake — "CB Inquiries ~ SBG NorCal"
+# Submissions land in the gym's existing intake spreadsheet.
+# Field IDs were extracted from the live form on sbgnorcal.com/get-started.
+# To swap to a different form: replace form_id and re-extract the entry IDs.
+google_form:
+  form_id: "1FAIpQLScmxcWLD-jbaCwMsw0klAzjzY-pIW0QR2Z76HWyOISHS7f9Tw"
+  action: "https://docs.google.com/forms/d/e/1FAIpQLScmxcWLD-jbaCwMsw0klAzjzY-pIW0QR2Z76HWyOISHS7f9Tw/formResponse"
+  fields:
+    name:    "entry.1553348061"
+    email:   "entry.847227639"
+    phone:   "entry.28741149"
+    message: "entry.1922512884"
+    program: "entry.1640851804"
+  # Map our program slugs to the EXACT option strings Google Forms expects.
+  # If a slug isn't listed, falls back to "Brazilian Jiu Jitsu (BJJ)".
+  program_options:
+    brazilian-jiu-jitsu: "Brazilian Jiu Jitsu (BJJ)"
+    mma:                 "Mixed Martial Arts (MMA)"
+    kickboxing:          "Kickboxing (KB)"
+    boxing-bootcamp:     "Boxing Boot Camp (BBC)"
+    fitness-101:         "Fitness"
+    youth-martial-arts:  "Youth Jiu Jitsu"
+    open-mat:            "Brazilian Jiu Jitsu (BJJ)"
+  program_default: "Brazilian Jiu Jitsu (BJJ)"
+
+# Affiliations
+affiliations:
+  - name: "Straight Blast Gym International"
+    url: "https://www.straightblastgym.com"
+    description: "SBG NorCal is a proud member of SBG International since 2003."
+  - name: "Berkeley Unified School District"
+    url: "https://www.berkeleyschools.net"
+    description: "MATS scholarship partner for Youth & Families."
+  - name: "Berkeley Adult School"
+    url: "https://www.berkeleyadultschool.org"
+    description: "MATS scholarship partner for Young Adults."

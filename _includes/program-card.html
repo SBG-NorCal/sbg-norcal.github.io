@@ -1,0 +1,17 @@
+{% assign p = include.program %}
+<a href="{{ p.url | relative_url }}" class="program-card">
+  {% if p.hero_image %}
+  <div class="program-card__media">
+    <img src="{{ p.hero_image | relative_url }}" alt="" loading="lazy" />
+  </div>
+  {% endif %}
+  <div class="program-card__body">
+    <div class="program-card__eyebrow">Program</div>
+    <h3 class="program-card__title">{{ p.title }}</h3>
+    <p class="program-card__desc">{{ p.short }}</p>
+    <div class="program-card__meta">
+      <span>Ages {{ p.ages }}</span>
+      <span>Explore &rarr;</span>
+    </div>
+  </div>
+</a>

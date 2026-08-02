@@ -1,0 +1,81 @@
+---
+layout: default
+title: Contact & Visit
+description: "Visit SBG NorCal at 1450 San Pablo Avenue, Berkeley. Call (510) 540-8283 or email us. Map, hours, and directions."
+permalink: /contact/
+---
+
+<header class="hero hero--compact">
+  <div class="container hero__content">
+    <span class="hero__eyebrow">Drop in. Call. Or write.</span>
+    <h1 class="hero__title">Come visit.</h1>
+    <p class="hero__lead">
+      We're on San Pablo Avenue in West Berkeley. Coaches are always around — walk in,
+      take a tour, watch a class, ask anything.
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr; gap:2.5rem;">
+      <div>
+        <div style="display:grid; grid-template-columns:1fr; gap:1.5rem; margin-bottom:2rem;">
+          <div style="padding:1.5rem; background:#16161b; border:1px solid #2a2a32; border-radius:16px;">
+            <span class="eyebrow">Address</span>
+            <h3 style="margin: 0.5rem 0;">{{ site.data.site.contact.address_line_1 }}</h3>
+            <p style="margin:0; color:#c9c2b6;">{{ site.data.site.contact.city }}, {{ site.data.site.contact.state }} {{ site.data.site.contact.zip }}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination={{ site.data.site.contact.google_maps_query }}" rel="noopener" target="_blank" class="btn btn--ghost" style="margin-top:1rem;">Get directions <span class="arrow">→</span></a>
+          </div>
+          <div style="padding:1.5rem; background:#16161b; border:1px solid #2a2a32; border-radius:16px;">
+            <span class="eyebrow">Call or write</span>
+            <h3 style="margin: 0.5rem 0;"><a href="tel:{{ site.data.site.contact.phone_link }}" style="color:#f5f1ea;">{{ site.data.site.contact.phone }}</a></h3>
+            <p style="margin:0; color:#c9c2b6;"><a href="mailto:{{ site.data.site.contact.email }}" style="color:#c9c2b6;">{{ site.data.site.contact.email }}</a></p>
+            <p style="margin:0.5rem 0 0; color:#c9c2b6;">MATS: <a href="mailto:{{ site.data.site.contact.mats_email }}" style="color:#c9c2b6;">{{ site.data.site.contact.mats_email }}</a></p>
+          </div>
+          <div style="padding:1.5rem; background:#16161b; border:1px solid #2a2a32; border-radius:16px;">
+            <span class="eyebrow">Hours</span>
+            <pre style="font-family: inherit; margin: 0.75rem 0 0; color:#c9c2b6; white-space: pre-wrap;">{{ site.data.site.contact.hours }}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="map">
+          <iframe src="{{ site.data.site.contact.google_maps_embed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+
+        <div style="padding:1.5rem; background:#16161b; border:1px solid #2a2a32; border-radius:16px; margin-top:1.5rem;">
+          <span class="eyebrow">Send us a message</span>
+          <h3 style="margin: 0.5rem 0 1.25rem;">Quick contact form</h3>
+          {% assign gf = site.data.site.google_form %}
+          <form id="contact-form-el" class="form" method="POST" action="{{ gf.action }}" target="_blank">
+            <div class="form__group">
+              <label class="form__label" for="c-name">Your name <span aria-hidden="true" style="color:#d22020;">*</span></label>
+              <input class="form__input" type="text" id="c-name" name="{{ gf.fields.name }}" required autocomplete="name" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="c-email">Email <span aria-hidden="true" style="color:#d22020;">*</span></label>
+              <input class="form__input" type="email" id="c-email" name="{{ gf.fields.email }}" required autocomplete="email" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="c-phone">Phone <span aria-hidden="true" style="color:#d22020;">*</span></label>
+              <input class="form__input" type="tel" id="c-phone" name="{{ gf.fields.phone }}" required autocomplete="tel" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="c-msg">Message <span aria-hidden="true" style="color:#d22020;">*</span></label>
+              <textarea class="form__textarea" id="c-msg" name="{{ gf.fields.message }}" required rows="4"></textarea>
+            </div>
+            {%- comment -%} Default class interest = BJJ (the gym's general inquiry bucket) {%- endcomment -%}
+            <input type="hidden" name="{{ gf.fields.program }}" value="{{ gf.program_default }}" />
+            <button type="submit" class="btn btn--primary btn--block">Send <span class="arrow">→</span></button>
+          </form>
+          <div id="contact-form-success" hidden style="margin-top:1rem; padding:1.25rem; background:#0f2410; border:1px solid #1e5a23; border-radius:12px;">
+            <strong style="color:#7be38a;">Message received.</strong>
+            <span style="color:#c9c2b6;"> We'll get back to you within one business day.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

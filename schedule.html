@@ -1,0 +1,38 @@
+---
+layout: default
+title: Class Schedule
+description: "Weekly class schedule at SBG NorCal Berkeley. Brazilian Jiu-Jitsu, MMA, Kickboxing, Boxing Bootcamp, Fitness 101, and Youth Martial Arts."
+permalink: /schedule/
+---
+
+<header class="hero hero--compact">
+  <div class="container hero__content">
+    <span class="hero__eyebrow">Weekly Schedule</span>
+    <h1 class="hero__title">When we train.</h1>
+    <p class="hero__lead">
+      Filter by program. Click any class to learn more. New here? Your first ten days are on us.
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container container--wide">
+    {% include schedule-grid.html %}
+
+    <div style="margin-top:3rem; display:grid; grid-template-columns:1fr; gap:2rem;">
+      {% comment %} Two calendar feed callouts {% endcomment %}
+      <div style="padding:1.5rem; background:#16161b; border:1px solid #2a2a32; border-radius:16px; display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:space-between;">
+        <div>
+          <h3 style="margin:0 0 0.5rem; font-size:1.25rem;">Add the gym calendar to your phone</h3>
+          <p style="margin:0; color:#c9c2b6; font-size:0.95rem;">Get every class, workshop, and MATS event automatically. Updated weekly.</p>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <a class="btn btn--secondary" href="{{ site.data.site.calendars.google_calendar_url }}" rel="noopener" target="_blank">Google Calendar</a>
+          <a class="btn btn--ghost" href="{{ site.data.site.calendars.apple_calendar_ics }}">Apple .ics</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include cta-banner.html %}

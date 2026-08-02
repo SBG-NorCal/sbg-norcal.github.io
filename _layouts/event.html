@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<header class="hero hero--page">
+  {% if page.hero_image %}
+  <div class="hero__media">
+    <img src="{{ page.hero_image | relative_url }}" alt="" loading="eager" />
+  </div>
+  {% endif %}
+  <div class="container hero__content">
+    <span class="hero__eyebrow">
+      {% if page.status == 'upcoming' %}Upcoming Event{% elsif page.status == 'past' %}Past Event{% else %}Event{% endif %}
+      &nbsp;·&nbsp; {{ page.date | date: "%B %-d, %Y" }}
+    </span>
+    <h1 class="hero__title">{{ page.title }}</h1>
+    <p class="hero__lead">{{ page.short }}</p>
+    {% if page.status == 'upcoming' %}
+    <div class="hero__actions">
+      {%- comment -%}
+        RSVP priority: partiful_url > luma_url > eventbrite_url > register_url
+        Each gets a labeled button so guests know what platform they're being
+        sent to. Hosts handle RSVPs natively (Partiful, Luma, Eventbrite all
+        block iframe embedding) — we just link out.
+      {%- endcomment -%}
+      {% if page.partiful_url %}
+        <a href="{{ page.partiful_url }}" rel="noopener" target="_blank" class="btn btn--primary btn--lg">RSVP on Partiful <span class="arrow">→</span></a>
+      {% elsif page.luma_url %}
+        <a href="{{ page.luma_url }}" rel="noopener" target="_blank" class="btn btn--primary btn--lg">RSVP on Luma <span class="arrow">→</span></a>
+      {% elsif page.eventbrite_url %}
+        <a href="{{ page.eventbrite_url }}" rel="noopener" target="_blank" class="btn btn--primary btn--lg">Get tickets on Eventbrite <span class="arrow">→</span></a>
+      {% elsif page.register_url %}
+        <a href="{{ page.register_url | relative_url }}" class="btn btn--primary btn--lg">Register / RSVP <span class="arrow">→</span></a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</header>
+
+<div class="container container--narrow section">
+  <dl style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1.25rem; margin-bottom:2.5rem; padding:1.5rem; background:#16161b; border:1px solid #2a2a32; border-radius:16px;">
+    <div><dt class="eyebrow eyebrow--mute">When</dt><dd style="margin:0;">{{ page.date | date: "%a, %b %-d, %Y" }}<br/><span style="color:#c9c2b6;">{{ page.time }}</span></dd></div>
+    <div><dt class="eyebrow eyebrow--mute">Where</dt><dd style="margin:0;">{{ page.location }}<br/><span style="color:#c9c2b6; font-size:0.9rem;">{{ page.address }}</span></dd></div>
+    <div><dt class="eyebrow eyebrow--mute">Cost</dt><dd style="margin:0; font-weight:600;">{{ page.cost }}</dd></div>
+    <div><dt class="eyebrow eyebrow--mute">Audience</dt><dd style="margin:0; font-weight:600;">{{ page.audience }}</dd></div>
+    {% if page.host %}<div><dt class="eyebrow eyebrow--mute">Hosted by</dt><dd style="margin:0; font-weight:600;">{{ page.host }}</dd></div>{% endif %}
+  </dl>
+
+  {{ content }}
+
+  <div class="divider-line"></div>
+
+  <a href="{{ '/events/' | relative_url }}" class="btn btn--ghost">&larr; All events</a>
+</div>

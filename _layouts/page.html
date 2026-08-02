@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+{% if page.hero_image or page.eyebrow or page.title %}
+<header class="hero hero--page" style="{% if page.hero_image %}--hero-bg:url('{{ page.hero_image | relative_url }}');{% endif %}">
+  {% if page.hero_image %}
+  <div class="hero__media">
+    <img src="{{ page.hero_image | relative_url }}" alt="" loading="eager" />
+  </div>
+  {% endif %}
+  <div class="container hero__content">
+    {% if page.eyebrow %}<span class="hero__eyebrow">{{ page.eyebrow }}</span>{% endif %}
+    <h1 class="hero__title">{{ page.title }}</h1>
+    {% if page.lead %}<p class="hero__lead">{{ page.lead }}</p>{% endif %}
+  </div>
+</header>
+{% endif %}
+
+<div class="container container--narrow section">
+  {{ content }}
+</div>

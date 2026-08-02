@@ -1,0 +1,45 @@
+# =========================================================================
+# MATS partners. Edit to update the /mats/ partners section.
+# =========================================================================
+
+partners:
+  - name: "Alameda County Foster Youth Alliance"
+    short: "Alameda Foster Youth"
+    description: >-
+      Connects youth aging out of the foster system with mentors,
+      training opportunities, and pathways to stable adult life.
+    url: ""
+    logo: ""
+
+  - name: "Safe Passages"
+    short: "Safe Passages"
+    description: >-
+      Oakland-based community organization that supports families and
+      children, disrupting cycles of poverty through cradle-to-career
+      programs.
+    url: "https://www.safepassages.org"
+    logo: ""
+
+  - name: "Berkeley Unified School District"
+    short: "BUSD"
+    description: >-
+      Scholarship pipeline for Youth & Families — SBG NorCal hosts
+      MATS-funded after-school martial arts programs through BUSD.
+    url: "https://www.berkeleyschools.net"
+    logo: ""
+
+  - name: "Berkeley Adult School"
+    short: "Berkeley Adult School"
+    description: >-
+      Scholarship partner for Young Adults — MATS provides training
+      and mentorship pathways for adult learners.
+    url: "https://www.berkeleyadultschool.org"
+    logo: ""
+
+  - name: "Straight Blast Gym International"
+    short: "SBGi"
+    description: >-
+      The global SBG network. SBG NorCal has been a member since 2003,
+      delivering "Aliveness"-based training in stand-up, clinch, and ground.
+    url: "https://www.straightblastgym.com"
+    logo: ""

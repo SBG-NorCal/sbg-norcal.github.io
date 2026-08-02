@@ -1,0 +1,31 @@
+---
+---
+
+@import "tokens";
+@import "base";
+@import "components";
+
+// Site-wide tweaks that don't fit cleanly into _components.scss
+.site-main {
+  // Mobile: ~24px promo + ~60px header. Desktop: 40px promo + 72px header.
+  padding-top: 84px;
+  min-height: calc(100vh - 200px);
+
+  @media (min-width: 768px) {
+    padding-top: 112px;
+  }
+
+  &--no-pad { padding-top: 0; }
+
+  body.no-promo & {
+    padding-top: 60px;
+    @media (min-width: 768px) { padding-top: 72px; }
+  }
+}
+
+// Print
+@media print {
+  .site-header, .site-footer, .hero__media, .cta-banner { display: none; }
+  body { background: #fff; color: #000; }
+  * { color: #000 !important; background: transparent !important; }
+}

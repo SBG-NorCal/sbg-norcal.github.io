@@ -1,0 +1,74 @@
+{% comment %}
+  Schedule grid — Monday → Sunday columns.
+  Pulls from site.data.schedule.classes, joins to site.programs by slug,
+  joins to site.coaches by slug.
+{% endcomment %}
+
+{% comment %}
+  Only render days that actually have classes — an empty column just eats
+  grid width. The column count is passed to CSS as --schedule-days so the
+  grid stays even no matter how many days are in play.
+
+  Short day labels (MON, TUE, ...) are derived from the day name rather
+  than kept in a parallel array, so the two can't drift out of sync.
+{% endcomment %}
+{% assign all_days = "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday" | split: "," %}
+{% assign active_days = "" %}
+{% for day in all_days %}
+  {% assign day_count = site.data.schedule.classes | where: "day", day | size %}
+  {% if day_count > 0 %}
+    {% if active_days == "" %}
+      {% assign active_days = day %}
+    {% else %}
+      {% assign active_days = active_days | append: "," | append: day %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% assign days = active_days | split: "," %}
+
+<div class="schedule">
+  <div class="schedule__filters" role="tablist" aria-label="Filter classes by program">
+    <button type="button" data-schedule-filter="all" class="schedule__filter is-active">All classes</button>
+    {% for program in site.programs %}
+    <button type="button" data-schedule-filter="{{ program.slug }}" class="schedule__filter">{{ program.title }}</button>
+    {% endfor %}
+  </div>
+  <div class="schedule__grid" data-schedule-grid style="--schedule-days: {{ days | size }};">
+    {% for day in days %}
+      {% assign day_classes = site.data.schedule.classes | where: "day", day | sort: "start" %}
+      <div class="schedule__day">
+        <div class="schedule__day-name">{{ day }}<span>{{ day | slice: 0, 3 | upcase }}</span></div>
+        <div class="schedule__day-slots">
+          {% for cls in day_classes %}
+            {% assign program = site.programs | where: "slug", cls.program | first %}
+            {% assign program_title = program.title | default: cls.program %}
+            {% assign coach_names = "" %}
+            {% for cs in cls.coaches %}
+              {% assign coach = site.coaches | where: "slug", cs | first %}
+              {% if coach %}
+                {% assign first_name = coach.name | split: ' ' | first %}
+                {% if coach_names == "" %}
+                  {% assign coach_names = first_name %}
+                {% else %}
+                  {% assign coach_names = coach_names | append: ", " | append: first_name %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% capture slot_start %}{{ cls.start }}{% endcapture %}
+            {% capture slot_end %}{{ cls.end }}{% endcapture %}
+            <a class="schedule__slot schedule__slot--{{ cls.program }}" data-program="{{ cls.program }}" href="{{ program.url | default: '#' | relative_url }}">
+              <div class="schedule__slot-time">{{ slot_start }} &ndash; {{ slot_end }}</div>
+              <div class="schedule__slot-title">{{ program_title }}</div>
+              <div class="schedule__slot-level">{{ cls.level }}</div>
+              {% if coach_names != "" %}<div class="schedule__slot-coach">{{ coach_names }}</div>{% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<p style="font-size:0.85rem; color:#8b8579; margin-top:1rem; text-align:center;">
+  Times in 24-hour format. Schedule subject to change &mdash; check our Instagram for the latest.
+</p>

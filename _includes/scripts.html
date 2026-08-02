@@ -1,0 +1,113 @@
+<script>
+  // Sticky-header shadow on scroll
+  (function() {
+    var header = document.getElementById('site-header');
+    if (!header) return;
+    var update = function() {
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    };
+    update();
+    document.addEventListener('scroll', update, { passive: true });
+  })();
+
+  // Mobile menu toggle
+  (function() {
+    var burger = document.getElementById('burger');
+    var drawer = document.getElementById('mobile-nav');
+    if (!burger || !drawer) return;
+    burger.addEventListener('click', function() {
+      var open = drawer.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    // Close drawer on link click
+    drawer.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        drawer.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+
+  // Schedule filtering (program type)
+  (function() {
+    var grid = document.querySelector('[data-schedule-grid]');
+    if (!grid) return;
+    var buttons = document.querySelectorAll('[data-schedule-filter]');
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = btn.getAttribute('data-schedule-filter');
+        buttons.forEach(function(b) { b.classList.toggle('is-active', b === btn); });
+        grid.querySelectorAll('.schedule__slot').forEach(function(slot) {
+          if (filter === 'all') {
+            slot.style.display = '';
+          } else {
+            slot.style.display = slot.dataset.program === filter ? '' : 'none';
+          }
+        });
+        // Hide empty days
+        grid.querySelectorAll('.schedule__day').forEach(function(day) {
+          var visible = day.querySelectorAll('.schedule__slot:not([style*="display: none"])');
+          // We don't actually hide the day; "Rest day" message handles empties via CSS.
+        });
+      });
+    });
+  })();
+
+  // Google Forms relay (used by trial form on /get-started/ and contact form)
+  // Both forms bind every input directly to its Google entry.* ID, so the
+  // no-JS fallback path POSTs to Google and lands the user on Google's
+  // confirmation page (one extra click back). When JS runs, we intercept
+  // with fetch() in no-cors mode so the user stays on our page and we
+  // show the inline thank-you panel.
+  (function() {
+    var forms = [
+      { form: 'trial-form-el',   success: 'trial-form-success'   },
+      { form: 'contact-form-el', success: 'contact-form-success' }
+    ];
+    forms.forEach(function(spec) {
+      var form = document.getElementById(spec.form);
+      if (!form) return;
+      var success = document.getElementById(spec.success);
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalLabel = submitBtn ? submitBtn.innerHTML : '';
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Build payload — only Google entry.* fields with non-empty values
+        var fd = new FormData();
+        Array.prototype.forEach.call(form.elements, function(el) {
+          if (el.name && el.name.indexOf('entry.') === 0 && el.value) {
+            fd.append(el.name, el.value);
+          }
+        });
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+        }
+
+        fetch(form.action, { method: 'POST', mode: 'no-cors', body: fd })
+          .then(function() {
+            form.hidden = true;
+            if (success) {
+              success.hidden = false;
+              success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          })
+          .catch(function() {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalLabel;
+            }
+            form.removeAttribute('target');
+            form.submit();
+          });
+      });
+    });
+  })();
+</script>

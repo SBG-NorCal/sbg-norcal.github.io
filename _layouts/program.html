@@ -1,0 +1,78 @@
+---
+layout: default
+---
+
+<header class="hero hero--page">
+  <div class="hero__media">
+    <img src="{{ page.hero_image | relative_url }}" alt="" loading="eager" />
+  </div>
+  <div class="container hero__content">
+    <span class="hero__eyebrow">Program</span>
+    <h1 class="hero__title">{{ page.title }}</h1>
+    <p class="hero__lead">{{ page.short }}</p>
+    <div class="hero__actions">
+      {% if page.free_trial_cta != false %}
+      <a href="{{ '/get-started/' | relative_url }}" class="btn btn--primary btn--lg">Try a free class <span class="arrow">→</span></a>
+      {% endif %}
+      <a href="{{ '/schedule/' | relative_url }}" class="btn btn--secondary btn--lg">See schedule</a>
+    </div>
+  </div>
+</header>
+
+<div class="container container--narrow section">
+  {% if page.levels %}
+  <h2>Levels</h2>
+  <ul style="list-style:none; padding:0; display:grid; gap:0.75rem; margin-bottom:2.5rem;">
+    {% for level in page.levels %}
+    <li style="padding:1.25rem; background:#16161b; border:1px solid #2a2a32; border-left:3px solid #d22020; border-radius:8px;">
+      <div style="font-family:Anton,sans-serif; text-transform:uppercase; font-size:1.1rem; margin-bottom:0.25rem; color:#f5f1ea;">{{ level.tag }}</div>
+      <p style="margin:0; color:#c9c2b6; font-size:0.95rem;">{{ level.blurb }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {{ content }}
+
+  <div class="divider-line"></div>
+
+  <dl style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; margin-bottom:2rem;">
+    {% if page.ages %}
+    <div><dt class="eyebrow eyebrow--mute">Ages</dt><dd style="margin:0; font-weight:600;">{{ page.ages }}</dd></div>
+    {% endif %}
+    {% if page.gear %}
+    <div><dt class="eyebrow eyebrow--mute">Gear</dt><dd style="margin:0; font-weight:600;">{{ page.gear }}</dd></div>
+    {% endif %}
+    {% if page.prereq %}
+    <div><dt class="eyebrow eyebrow--mute">Prerequisite</dt><dd style="margin:0; font-weight:600;">{{ page.prereq }}</dd></div>
+    {% endif %}
+  </dl>
+</div>
+
+{% comment %}
+  List coaches who teach this program.
+
+  Driven by the `programs:` list in each coach's front matter, NOT by
+  _data/schedule.yml — the schedule intentionally carries no coach
+  assignments, since who teaches a given slot changes week to week.
+  To change who appears here, edit `programs:` in _coaches/<slug>.md.
+{% endcomment %}
+{% assign program_coaches = site.coaches | where_exp: "c", "c.programs contains page.slug" | sort: "order" %}
+
+{% if program_coaches.size > 0 %}
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Who you'll train with</span>
+      <h2>{{ page.title }} Coaches</h2>
+    </div>
+    <div class="coaches-grid">
+      {% for coach in program_coaches %}
+        {% include coach-card.html coach=coach %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include cta-banner.html %}

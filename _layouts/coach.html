@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<div class="container section" style="padding-top: 0;">
+  <a href="{{ '/coaches/' | relative_url }}" class="eyebrow eyebrow--mute" style="text-decoration:none;">&larr; All coaches</a>
+  <div class="coach-hero" style="padding-top: 1.5rem;">
+    <div class="coach-hero__photo">
+      <img src="{{ page.photo | relative_url }}" alt="Portrait of {{ page.name | escape }}" loading="eager" />
+    </div>
+    <div>
+      <span class="eyebrow">{{ page.role }}</span>
+      <h1 style="margin-top:0;">{{ page.name }}</h1>
+      <p class="hero__lead" style="color: var(--fg-mute);">{{ page.short_bio }}</p>
+
+      <dl class="coach-hero__meta-list">
+        {% if page.program %}
+        <div class="coach-hero__meta-item">
+          <dt>Primary program</dt><dd>{{ page.program }}</dd>
+        </div>
+        {% endif %}
+        {% if page.belt %}
+        <div class="coach-hero__meta-item">
+          <dt>Primary rank</dt><dd>{{ page.belt }}</dd>
+        </div>
+        {% endif %}
+        {% if page.secondary_belt %}
+        <div class="coach-hero__meta-item">
+          <dt>Other ranks</dt><dd>{{ page.secondary_belt }}</dd>
+        </div>
+        {% endif %}
+        {% if page.years_training %}
+        <div class="coach-hero__meta-item">
+          <dt>Years training</dt><dd>{{ page.years_training }}+</dd>
+        </div>
+        {% endif %}
+        {% if page.joined %}
+        <div class="coach-hero__meta-item">
+          <dt>At SBG since</dt><dd>{{ page.joined }}</dd>
+        </div>
+        {% endif %}
+      </dl>
+
+      {% if page.specialties %}
+      <div class="pills">
+        {% for s in page.specialties %}<span class="pills__item">{{ s }}</span>{% endfor %}
+      </div>
+      {% endif %}
+
+      <div style="margin-top: 2rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+        <a href="{{ '/get-started/' | relative_url }}" class="btn btn--primary">Train with {{ page.name | split: ' ' | first }} <span class="arrow">→</span></a>
+        <a href="{{ '/schedule/' | relative_url }}" class="btn btn--ghost">See {{ page.name | split: ' ' | first }}'s classes</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container container--narrow section section--tight">
+  {{ content }}
+</div>
+
+{% include cta-banner.html %}

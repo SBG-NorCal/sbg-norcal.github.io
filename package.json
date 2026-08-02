@@ -1,0 +1,16 @@
+{
+  "name": "sbg-norcal-mats-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright visual + content tests for the SBG NorCal x MATS Jekyll site. Node is a TEST-ONLY dependency; the site itself is pure Jekyll and needs no Node to build or deploy.",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "shots": "playwright test --update-snapshots"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}

@@ -1,0 +1,186 @@
+// =========================================================================
+// Base — resets, body, typography defaults
+// =========================================================================
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: $bg;
+  color: $fg;
+  font-family: $font-body;
+  font-size: $fs-base;
+  line-height: 1.6;
+  font-weight: $weight-regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select { font: inherit; color: inherit; }
+
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+a {
+  color: $fg;
+  text-decoration: none;
+  transition: color $dur-fast $ease-out;
+
+  &:hover { color: $accent; }
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 4px;
+    border-radius: $radius-sm;
+  }
+}
+
+// ---- Headings -----------------------------------------------------------
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: $weight-regular;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin: 0 0 $sp-4;
+  color: $fg;
+}
+
+h1 {
+  font-size: clamp($fs-3xl, 6vw, $fs-5xl);
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: clamp($fs-2xl, 4vw, $fs-4xl);
+  margin-top: $sp-7;
+}
+h3 {
+  font-size: clamp($fs-xl, 2.5vw, $fs-2xl);
+  margin-top: $sp-6;
+}
+h4 { font-size: $fs-lg; }
+h5 { font-size: $fs-md; }
+h6 { font-size: $fs-base; }
+
+p {
+  margin: 0 0 $sp-5;
+  font-size: $fs-md;
+  line-height: 1.7;
+  color: $fg-mute;
+}
+
+// First paragraph after a heading is the lead
+h1 + p, h2 + p {
+  font-size: $fs-lg;
+  color: $fg;
+  font-weight: $weight-regular;
+}
+
+ul, ol { padding-left: 1.25rem; margin: 0 0 $sp-5; color: $fg-mute; }
+li { margin-bottom: $sp-2; }
+
+strong, b { font-weight: $weight-semi; color: $fg; }
+em { font-style: italic; }
+
+hr {
+  border: none;
+  height: 1px;
+  background: $border;
+  margin: $sp-7 0;
+}
+
+code {
+  font-family: $font-mono;
+  font-size: 0.95em;
+  background: $ink-2;
+  padding: 2px 6px;
+  border-radius: $radius-sm;
+  border: 1px solid $border;
+}
+
+blockquote {
+  margin: $sp-6 0;
+  padding: $sp-5 $sp-6;
+  border-left: 4px solid $accent;
+  background: $ink-2;
+  border-radius: 0 $radius $radius 0;
+  font-size: $fs-md;
+  color: $fg;
+  font-style: italic;
+}
+
+// ---- Utility classes ----------------------------------------------------
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  &--narrow { max-width: $container-narrow; }
+  &--wide   { max-width: $container-wide; }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: $fs-xs;
+  font-weight: $weight-bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: $sp-3;
+
+  &--mats { color: $mats; }
+  &--mute { color: $fg-dim; }
+}
+
+.section {
+  padding: $sp-8 0;
+  @include md { padding: $sp-10 0; }
+
+  &--tight { padding: $sp-7 0; }
+  &--hero  { padding: 0; }
+  &--alt   { background: $ink-2; }
+  &--dark  { background: #000; }
+}
+
+.text-mute { color: $fg-mute; }
+.text-dim  { color: $fg-dim; }
+.text-accent { color: $accent; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+// Skip link for accessibility
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: $sp-4;
+  background: $accent;
+  color: $bone;
+  padding: $sp-3 $sp-4;
+  z-index: $z-modal;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  border-radius: $radius;
+
+  &:focus { top: $sp-4; color: $bone; }
+}

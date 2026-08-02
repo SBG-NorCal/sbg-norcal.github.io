@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--
+  Mobile preview rig — zero install, no Playwright required.
+
+  Open this file in any browser while the dev server is running
+  (docker compose up / bundle exec jekyll serve), and it renders the site
+  in real phone-width viewports, side by side.
+
+  Why iframes: an iframe establishes its own viewport, so CSS media queries
+  inside it evaluate against the IFRAME's width, not the window's. That
+  gives genuine mobile rendering without resizing your window, opening
+  DevTools, or installing anything.
+
+  For automated assertions across four device profiles, use the Playwright suite
+  instead — see docs/TESTING.md.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SBG NorCal — mobile preview</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; background: #111; color: #eee;
+    font: 14px/1.5 system-ui, -apple-system, sans-serif;
+  }
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    padding: 12px 16px; background: #1a1a1a; border-bottom: 1px solid #333;
+  }
+  h1 { font-size: 15px; margin: 0 8px 0 0; font-weight: 600; }
+  label { font-size: 13px; color: #bbb; }
+  input, select, button {
+    background: #222; color: #eee; border: 1px solid #444;
+    border-radius: 6px; padding: 5px 9px; font: inherit;
+  }
+  button { cursor: pointer; }
+  button:hover { border-color: #888; }
+  #strip {
+    display: flex; gap: 14px; padding: 14px; align-items: flex-start;
+    overflow-x: auto;
+  }
+  .device { flex: 0 0 auto; }
+  .device figcaption {
+    font-size: 12px; color: #aaa; padding: 0 0 6px;
+    display: flex; justify-content: space-between; gap: 10px;
+  }
+  .device iframe {
+    border: 1px solid #444; border-radius: 10px; background: #000;
+    display: block;
+  }
+  .warn { color: #ffb4b4; }
+  .ok { color: #9fe0a0; }
+  #status { padding: 0 16px 14px; font-size: 13px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Mobile preview</h1>
+  <label>Server
+    <input id="origin" value="http://localhost:4000" size="22">
+  </label>
+  <label>Page
+    <select id="page">
+      <option value="/">Home</option>
+      <option value="/schedule/" selected>Schedule</option>
+      <option value="/coaches/">Coaches</option>
+      <option value="/programs/open-mat/">Open Mat</option>
+      <option value="/mats/#donate">MATS / Donate</option>
+      <option value="/get-started/">Get Started</option>
+      <option value="/contact/">Contact</option>
+      <option value="/events/">Events</option>
+    </select>
+  </label>
+  <button id="reload">Reload</button>
+  <button id="check">Run checks</button>
+</header>
+
+<div id="strip"></div>
+<div id="status">Pick a page, then press <b>Run checks</b>.</div>
+
+<script>
+// Widths worth testing. 360 is the narrowest phone worth supporting;
+// 1024 is the `lg` breakpoint where the desktop nav and 7-column
+// schedule grid kick in.
+const DEVICES = [
+  { label: 'Small Android', w: 360, h: 740 },
+  { label: 'iPhone 13',     w: 390, h: 760 },
+  { label: 'iPad portrait', w: 768, h: 760 },
+  { label: 'Laptop',        w: 1024, h: 760 },
+];
+
+const $ = (id) => document.getElementById(id);
+const strip = $('strip');
+const status = $('status');
+
+function build() {
+  strip.innerHTML = '';
+  const origin = $('origin').value.replace(/\/$/, '');
+  const page = $('page').value;
+  for (const d of DEVICES) {
+    const fig = document.createElement('figure');
+    fig.className = 'device';
+    fig.style.margin = '0';
+    fig.innerHTML =
+      `<figcaption><span>${d.label}</span><span>${d.w}px</span></figcaption>`;
+    const f = document.createElement('iframe');
+    f.src = origin + page;
+    f.width = d.w;
+    f.height = d.h;
+    f.dataset.label = d.label;
+    fig.append(f);
+    strip.append(fig);
+  }
+}
+
+// Checks that run inside each iframe. Same-origin only — if you opened this
+// file via file://, the browser blocks script access to the frames and only
+// the visual preview works. Serving this file from the dev server itself
+// (or opening it from the same origin) enables the checks.
+function check() {
+  const out = [];
+  let blocked = false;
+
+  for (const f of strip.querySelectorAll('iframe')) {
+    const label = f.dataset.label;
+    let d, w;
+    try {
+      d = f.contentDocument; w = f.contentWindow;
+      if (!d) throw new Error('no document');
+    } catch (e) {
+      blocked = true;
+      continue;
+    }
+
+    const vw = w.innerWidth;
+    const push = (pass, msg) =>
+      out.push(`${pass ? '  ok  ' : '  FAIL'} ${label} @${vw}px — ${msg}`);
+
+    // #1 mobile bug: something wider than the viewport causes sideways scroll.
+    const overflow = d.documentElement.scrollWidth - d.documentElement.clientWidth;
+    push(overflow <= 1, overflow <= 1
+      ? 'no horizontal overflow'
+      : `horizontal overflow of ${overflow}px`);
+
+    // Nav should switch to the burger below the lg (1024px) breakpoint.
+    const burger = d.getElementById('burger');
+    if (burger) {
+      const burgerShown = w.getComputedStyle(burger).display !== 'none';
+      const wantBurger = vw < 1024;
+      push(burgerShown === wantBurger,
+        `${burgerShown ? 'burger' : 'full nav'} shown (expected ${wantBurger ? 'burger' : 'full nav'})`);
+    }
+
+    // Schedule-specific: tap targets and legible times.
+    const slot = d.querySelector('.schedule__slot');
+    if (slot) {
+      const h = slot.getBoundingClientRect().height;
+      push(h >= 44, `class slots ${Math.round(h)}px tall (min 44px tap target)`);
+      const t = d.querySelector('.schedule__slot-time');
+      if (t) {
+        const fs = parseFloat(w.getComputedStyle(t).fontSize);
+        push(fs >= 11, `class times ${fs}px (min 11px)`);
+      }
+    }
+
+    // Coach belt badge must stay off faces — lower half of the portrait.
+    const badges = [...d.querySelectorAll('.coach-card__belt')];
+    if (badges.length) {
+      let highest = 1;
+      for (const b of badges) {
+        const m = b.parentElement.getBoundingClientRect();
+        const r = b.getBoundingClientRect();
+        if (m.height > 0) highest = Math.min(highest, (r.top - m.top) / m.height);
+      }
+      push(highest > 0.5,
+        `highest belt badge starts ${(highest * 100).toFixed(0)}% down the photo (want >50%)`);
+    }
+  }
+
+  if (blocked) {
+    status.innerHTML =
+      '<span class="warn">Cross-origin: the browser won\'t let this page read the frames, ' +
+      'so only the visual preview works.</span>\n' +
+      'The visual check above is still valid. For scripted checks, run the ' +
+      'Playwright suite (see docs/TESTING.md).';
+    return;
+  }
+
+  const failed = out.filter((l) => l.includes('FAIL')).length;
+  status.innerHTML =
+    (failed
+      ? `<span class="warn">${failed} check(s) failed</span>`
+      : `<span class="ok">All checks passed</span>`) +
+    '\n' + out.join('\n');
+}
+
+$('reload').onclick = build;
+$('page').onchange = build;
+$('origin').onchange = build;
+$('check').onclick = check;
+build();
+</script>
+</body>
+</html>

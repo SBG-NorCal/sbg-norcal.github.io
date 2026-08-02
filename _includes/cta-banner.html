@@ -1,0 +1,13 @@
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <span class="eyebrow" style="color:#fff;">10-Day Trial · No Commitment</span>
+      <h2>{{ include.title | default: 'Try us for 10 days. Free.' }}</h2>
+      <p>{{ include.body | default: 'Take as many classes as you like during your guest pass. We will walk you through every step — from your first orientation to your first roll.' }}</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="{{ '/get-started/' | relative_url }}" class="btn btn--secondary btn--lg">Claim my 10 days <span class="arrow">→</span></a>
+        <a href="{{ '/schedule/' | relative_url }}" class="btn btn--ghost btn--lg" style="color:#fff; border-color:rgba(255,255,255,0.4);">See the schedule</a>
+      </div>
+    </div>
+  </div>
+</section>
