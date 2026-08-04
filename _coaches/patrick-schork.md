@@ -1,5 +1,5 @@
 ---
-name: Patrick Schork
+name: Patrick Schork (Danher)
 slug: patrick-schork
 order: 12
 role: Foundations Jiu-Jitsu Assistant Coach
@@ -8,7 +8,7 @@ programs: [brazilian-jiu-jitsu]   # slugs from _programs/ — drives the coach l
 photo: /assets/images/coaches/patrick-schork.jpg
 belt: BJJ Blue Belt
 secondary_belt: Aikido Black Belt
-years_training: 9
+years_training: 100
 joined: 2023
 specialties:
   - Foundations Jiu-Jitsu
