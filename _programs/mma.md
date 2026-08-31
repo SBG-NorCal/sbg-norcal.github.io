@@ -3,7 +3,7 @@ title: MMA (Mixed Martial Arts)
 slug: mma
 order: 4
 short: "Stand-up, clinch, and ground — integrated. For students with a base in striking and grappling."
-hero_image: /assets/images/programs/kickboxing.jpg
+hero_image: /assets/images/programs/mma.jpg
 icon: mma
 levels:
   - { tag: Integrations, blurb: "Combines our Kickboxing and Jiu-Jitsu programs into live, full-range training." }

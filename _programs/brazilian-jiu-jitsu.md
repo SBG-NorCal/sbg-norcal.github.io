@@ -3,7 +3,7 @@ title: Brazilian Jiu-Jitsu
 slug: brazilian-jiu-jitsu
 order: 1
 short: "The core delivery system for self-defense and sport — beginner-friendly, systematically taught."
-hero_image: /assets/images/programs/bjj.jpg
+hero_image: /assets/images/programs/brazilian-jiu-jitsu.jpg
 icon: grappling
 levels:
   - { tag: Foundations,  blurb: "Beginner-friendly. No experience required. Build a strong base." }
