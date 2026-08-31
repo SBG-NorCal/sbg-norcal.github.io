@@ -3,7 +3,7 @@ title: Open Mat
 slug: open-mat
 order: 7
 short: "Free training time. Drill what you learned in class, ask coaches questions, roll with friends — live rolling requires coach approval."
-hero_image: /assets/images/programs/bjj.jpg
+hero_image: /assets/images/programs/open-mat.jpg
 icon: openmat
 levels:
   - { tag: "All Levels (coach approval to roll)", blurb: "All belt levels and disciplines are welcome to attend and drill. Live rolling/sparring requires a coach's approval — check with a coach on the mat before your first round." }
