@@ -3,17 +3,9 @@ name: Kyle Fong-Cristin
 slug: kyle-fong-cristin
 order: 9
 role: Integrations Kickboxing Coach
-program: Kickboxing & MMA
-programs: [kickboxing, mma, boxing-bootcamp]   # slugs from _programs/ — drives the coach list on program pages
 photo: /assets/images/coaches/kyle-fong-cristin.jpg
 belt: Lifelong Martial Artist
-secondary_belt: Hapkido, Wrestling
-years_training: 15
 joined: 2014
-specialties:
-  - Kickboxing / Muay Thai
-  - MMA integration
-  - Grappling & Jiu-Jitsu
 short_bio: >-
   Raised in a martial arts family. Joined SBG at 13 to pursue MMA and
   kickboxing — now coaches both.

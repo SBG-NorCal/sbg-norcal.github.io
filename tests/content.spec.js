@@ -129,15 +129,12 @@ test.describe('coach cards', () => {
   // responsive.spec.js, where it runs at every width. This file only covers
   // facts that are the same on every screen.
 
-  test('program pages still list coaches', async ({ page }) => {
-    // The schedule carries no coach assignments, so this section is driven
-    // by the `programs:` list in each coach's front matter. If that wiring
-    // breaks, the section silently disappears rather than erroring — hence
-    // this test.
+  test('program pages do not list coaches', async ({ page }) => {
+    // Who covers a program changes week to week, so program pages
+    // deliberately carry no coach list.
     for (const slug of ['brazilian-jiu-jitsu', 'kickboxing', 'youth-martial-arts']) {
       await page.goto(`/programs/${slug}/`);
-      const cards = page.locator('.coaches-grid .coach-card');
-      await expect(cards.first(), `no coaches listed on /programs/${slug}/`).toBeVisible();
+      await expect(page.locator('.coach-card')).toHaveCount(0);
     }
   });
 

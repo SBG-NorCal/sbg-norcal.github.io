@@ -3,18 +3,9 @@ name: Lily Pagle
 slug: lily-pagle
 order: 1
 role: Head Coach & Co-Founder
-program: Brazilian Jiu-Jitsu
-programs: [brazilian-jiu-jitsu, open-mat]   # slugs from _programs/ — drives the coach list on program pages
 photo: /assets/images/coaches/lily-pagle.jpg
 belt: 4th Degree BJJ Black Belt
-secondary_belt: 2nd Degree Judo Black Belt
-years_training: 25
 joined: 2002
-specialties:
-  - Brazilian Jiu-Jitsu (Gi & No-Gi)
-  - Judo
-  - Coach development
-  - Women's grappling
 short_bio: >-
   SBG NorCal co-founder and Head Coach. Lily holds a 4th degree black belt
   in Brazilian Jiu-Jitsu and a 2nd degree black belt in Judo, with over

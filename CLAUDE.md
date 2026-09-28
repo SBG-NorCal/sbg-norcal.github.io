@@ -45,9 +45,8 @@ Leadership 30 min.
 python tests/crosscheck_schedule.py    # AM/PM mix-ups, dupes, bad slugs
 ```
 
-Coaches are **not** listed per class — who covers a slot changes week to
-week. The "Who you'll train with" list on each program page comes from the
-`programs:` field in `_coaches/<slug>.md`.
+Coaches are **not** listed per class or per program — who covers a slot
+changes week to week. The coaches page lists everyone.
 
 ## Local dev
 

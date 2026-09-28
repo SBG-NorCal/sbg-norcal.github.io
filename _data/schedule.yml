@@ -18,8 +18,7 @@
 # AM/PM mix-ups, duplicates, and bad program slugs.
 #
 # Coaches are deliberately NOT listed per class — who covers a given slot
-# changes week to week. The "Who you'll train with" list on each program
-# page comes from the `programs:` field in _coaches/<slug>.md instead.
+# changes week to week.
 #
 # Standard class lengths (useful sanity check when editing):
 #   Foundations / Integrations ....... 75 min

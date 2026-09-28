@@ -232,9 +232,7 @@ If you add a genuinely new class type, add its expected length to
 checked.
 
 > **Coaches aren't in this file.** Who covers a given slot changes week to
-> week, so the grid doesn't name coaches. The "Who you'll train with"
-> section on each program page comes from the `programs:` list in
-> `_coaches/<slug>.md`.
+> week, so the grid doesn't name coaches.
 
 ---
 
