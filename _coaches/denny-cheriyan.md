@@ -3,6 +3,7 @@ name: Denny Cheriyan
 slug: denny-cheriyan
 order: 6
 role: Foundations Jiu-Jitsu Coach
+program: Brazilian Jiu-Jitsu
 photo: /assets/images/coaches/denny-cheriyan.jpg
 belt: BJJ Purple Belt
 joined: 2017

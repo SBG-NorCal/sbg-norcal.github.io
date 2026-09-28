@@ -3,6 +3,7 @@ name: Fred Yu
 slug: fred-yu
 order: 4
 role: Integrations Jiu-Jitsu Coach
+program: Brazilian Jiu-Jitsu, Kickboxing & MMA
 photo: /assets/images/coaches/fred-yu.jpg
 belt: BJJ Black Belt
 joined: 2010

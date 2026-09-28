@@ -3,6 +3,7 @@ name: Patrick Schork
 slug: patrick-schork
 order: 12
 role: Foundations Jiu-Jitsu Assistant Coach
+program: Brazilian Jiu-Jitsu
 photo: /assets/images/coaches/patrick-schork.jpg
 belt: BJJ Blue Belt
 joined: 2023

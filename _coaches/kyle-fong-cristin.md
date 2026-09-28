@@ -3,6 +3,7 @@ name: Kyle Fong-Cristin
 slug: kyle-fong-cristin
 order: 9
 role: Integrations Kickboxing Coach
+program: Kickboxing & MMA
 photo: /assets/images/coaches/kyle-fong-cristin.jpg
 belt: Lifelong Martial Artist
 joined: 2014

@@ -52,6 +52,7 @@ name: Firstname Lastname
 slug: firstname-lastname
 order: 13                      # Display order (1 = first)
 role: Foundations Jiu-Jitsu Coach
+program: Brazilian Jiu-Jitsu     # Free-text, shown on the coach's page
 photo: /assets/images/coaches/firstname-lastname.jpg
 belt: BJJ Purple Belt
 joined: 2024
@@ -92,8 +93,8 @@ Edit `_data/schedule.yml`. Each entry:
 > python tests/crosscheck_schedule.py
 > ```
 
-Coaches are **not** listed per class or per program — who covers a slot
-changes week to week. The coaches page lists everyone.
+Coaches are **not** listed per class, and program pages don't list coaches —
+who covers a slot changes week to week. The coaches page lists everyone.
 
 ### "We're hosting a new community event"
 
@@ -489,7 +490,7 @@ breakpoint and attaches full-page screenshots to the report.
 | **Schedule** | `_data/schedule.yml` | No (data) | classes[] |
 | **Partners** | `_data/partners.yml` | No (data) | partners[] |
 | **Testimonials** | `_data/testimonials.yml` | No (data) | testimonials[] |
-| **Coach** | `_coaches/<slug>.md` | `/coaches/<slug>/` | name, role, photo, belt, bio |
+| **Coach** | `_coaches/<slug>.md` | `/coaches/<slug>/` | name, role, program, photo, belt, bio |
 | **Program** | `_programs/<slug>.md` | `/programs/<slug>/` | title, short, hero_image, levels[], ages |
 | **Event** | `_events/<slug>.md` | `/events/<slug>/` | title, date, time, location, status |
 

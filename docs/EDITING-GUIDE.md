@@ -149,6 +149,7 @@ name: Jane Doe
 slug: jane-doe                  # must match file name (without .md)
 order: 13                       # 1-12 already taken; pick the next number
 role: Foundations Jiu-Jitsu Coach
+program: Brazilian Jiu-Jitsu
 photo: /assets/images/coaches/jane-doe.jpg
 belt: BJJ Purple Belt
 joined: 2025

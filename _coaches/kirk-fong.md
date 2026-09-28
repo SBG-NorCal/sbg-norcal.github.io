@@ -3,6 +3,7 @@ name: Kirk Fong
 slug: kirk-fong
 order: 3
 role: Integrations Jiu-Jitsu Coach
+program: Brazilian Jiu-Jitsu
 photo: /assets/images/coaches/kirk-fong.jpg
 belt: BJJ Black Belt (Coach Lily, 2022)
 joined: 2005

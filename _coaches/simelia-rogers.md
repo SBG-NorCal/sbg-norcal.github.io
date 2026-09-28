@@ -3,6 +3,7 @@ name: Simelia Rogers
 slug: simelia-rogers
 order: 8
 role: Tween / Teen Jiu-Jitsu Coach
+program: Youth Martial Arts
 photo: /assets/images/coaches/simelia-rogers.jpg
 belt: BJJ Blue Belt
 joined: 2014

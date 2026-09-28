@@ -3,6 +3,7 @@ name: Matthew "Oki" O'Connor
 slug: oki-oconnor
 order: 7
 role: Foundations Jiu-Jitsu Coach
+program: Brazilian Jiu-Jitsu
 photo: /assets/images/coaches/oki-oconnor.jpg
 belt: BJJ Purple Belt
 joined: 2010

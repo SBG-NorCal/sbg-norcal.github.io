@@ -3,6 +3,7 @@ name: Cameron Avery
 slug: cameron-avery
 order: 10
 role: Foundations Kickboxing Coach
+program: Kickboxing
 photo: /assets/images/coaches/cameron-avery.jpg
 belt: Kickboxing Coach
 joined: 2021

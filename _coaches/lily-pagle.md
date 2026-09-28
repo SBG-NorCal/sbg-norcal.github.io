@@ -3,6 +3,7 @@ name: Lily Pagle
 slug: lily-pagle
 order: 1
 role: Head Coach & Co-Founder
+program: Brazilian Jiu-Jitsu
 photo: /assets/images/coaches/lily-pagle.jpg
 belt: 4th Degree BJJ Black Belt
 joined: 2002

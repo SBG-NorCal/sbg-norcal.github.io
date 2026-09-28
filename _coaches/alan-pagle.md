@@ -3,6 +3,7 @@ name: Alan Pagle
 slug: alan-pagle
 order: 2
 role: Head Coach & Co-Founder
+program: Brazilian Jiu-Jitsu, Boxing & Kickboxing
 photo: /assets/images/coaches/alan-pagle.jpg
 belt: 2nd Degree Judo Black Belt
 joined: 2002

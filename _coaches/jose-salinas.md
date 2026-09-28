@@ -3,6 +3,7 @@ name: Jose Salinas
 slug: jose-salinas
 order: 5
 role: Foundations Jiu-Jitsu Coach
+program: Brazilian Jiu-Jitsu
 photo: /assets/images/coaches/jose-salinas.jpg
 belt: BJJ Purple Belt
 joined: 2010

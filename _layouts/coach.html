@@ -14,6 +14,11 @@ layout: default
       <p class="hero__lead" style="color: var(--fg-mute);">{{ page.short_bio }}</p>
 
       <dl class="coach-hero__meta-list">
+        {% if page.program %}
+        <div class="coach-hero__meta-item">
+          <dt>Primary program</dt><dd>{{ page.program }}</dd>
+        </div>
+        {% endif %}
         {% if page.belt %}
         <div class="coach-hero__meta-item">
           <dt>Primary rank</dt><dd>{{ page.belt }}</dd>
