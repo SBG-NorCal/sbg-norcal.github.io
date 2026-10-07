@@ -60,9 +60,7 @@ collaborator on the repository. Ask them once; you're set forever after.
 
 ### Step 2 — Open the repository
 
-Go to <https://github.com/SBG-NorCal/sbg-norcal.github.io>
-(your bookmark this; the gym lead will share the real URL once the repo
-is created).
+Go to <https://github.com/SBG-NorCal/preview> and bookmark it.
 
 ### Step 3a — Adding a NEW file
 
