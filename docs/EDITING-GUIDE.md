@@ -171,7 +171,7 @@ You can use **bold**, *italic*, and links like [SBGi](https://straightblastgym.c
    `photo:` path exactly — e.g. `jane-doe.jpg`.
 4. Commit as part of the same pull request (or a separate one — both work).
 
-**Photo specs:** see the [Image specifications](#image-specifications) section below — short version: **800×1000 px, 4:5 portrait, JPG, under 200 KB**.
+**Photo specs:** see the [Image specifications](#image-specifications) section below — short version: **800 wide × 1000 tall px, 4:5 portrait, JPG, under 200 KB**. If you need to resize a photo, see [How to resize a photo](#how-to-resize-a-photo-before-uploading).
 
 ---
 
@@ -395,26 +395,22 @@ stretched, blurry, or cause horizontal scrolling on mobile.
 
 ## How to resize a photo before uploading
 
-You don't need Photoshop. Use any of these (all free):
+If you don't already have a way to resize photos, use <https://www.birme.net>
+(free, works on Mac and Windows, your photo isn't uploaded anywhere).
 
-| Tool | Where | Best for |
-|---|---|---|
-| **macOS Preview** | Built into every Mac | Open → Tools → Adjust Size → enter the width, hit OK → File → Export with quality slider at ~80% |
-| **Windows Photos** | Built into Windows 10/11 | Open → ⋯ → Resize → Custom dimensions |
-| **squoosh.app** | <https://squoosh.app> | Browser-based, no install. Drag image in, pick MozJPEG, slide quality to ~80%, set "Resize" on the left panel |
-| **TinyJPG** | <https://tinyjpg.com> | Browser-based, drag-and-drop optimizer that often gets photos under 100 KB without visible quality loss |
-| **iPhone Shortcuts** | Built into iOS | The "Resize Image" action — set to 800 wide, save as JPG |
-
-**Typical workflow for a new coach portrait:**
-
-1. Take or pick a photo where the coach's head and shoulders are visible.
-2. Crop to a tall rectangle (taller than wide) — 4:5 ratio means 800 px
-   wide × 1000 px tall.
-3. Export as JPG, quality 80%.
-4. Check the file size — should be under 200 KB. If it's bigger, run it
-   through <https://tinyjpg.com>.
-5. Rename to `firstname-lastname.jpg` (lowercase, no spaces).
-6. Follow the [Add a coach](#recipe-add-a-coach) recipe to upload.
+1. Go to <https://www.birme.net>.
+2. Drag your photo onto the page.
+3. On the right, untick **Auto Width** and **Auto height**, then type the
+   **Width** and **Height** from the [Quick reference](#quick-reference)
+   table (coach portrait: **800** wide, **1000** tall).
+4. The striped areas of the preview will be cut off. If a head is in the
+   stripes, click the **crop icon** under the photo and drag the box to
+   frame the person.
+5. Open **Image Format & Quality**, choose **JPEG**, and set quality to **80**.
+6. Click **Download Files**.
+7. Check the file is under the size limit in the table. If it's too big,
+   repeat with quality **70**.
+8. Rename it to `firstname-lastname.jpg` (lowercase, no spaces).
 
 ## What happens if my photo is the wrong size?
 
