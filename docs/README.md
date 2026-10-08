@@ -11,7 +11,5 @@
   [EDITING-GUIDE.md](EDITING-GUIDE.md)
 - **"I want to add a new page, change layouts, restyle the site"** →
   [../README.md](../README.md) + local development
-- **"How do I set up the members-only calendar?"** →
-  [../README.md](../README.md), search for "private members-only calendar"
 - **"How do form submissions work?"** →
   [../README.md](../README.md), search for "trial form" / "Google Form"

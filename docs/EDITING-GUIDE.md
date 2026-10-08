@@ -386,7 +386,6 @@ Common edits:
 | Instagram URL | `social:` → `Instagram` entry |
 | Google Calendar URL (public events) | `calendars:` → `google_calendar_url:` |
 | Apple/Outlook iCal URL | `calendars:` → `apple_calendar_ics:` |
-| Members-only calendar URL | `calendars:` → `members_calendar_url:` |
 
 **Indentation matters.** Add new calendar keys *inside* the `calendars:`
 block (two spaces of indent) — not at the top level. Use the existing
