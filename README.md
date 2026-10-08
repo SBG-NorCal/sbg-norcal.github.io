@@ -172,35 +172,6 @@ want a single calendar feed of all events, treat Google Calendar as the
 source of truth (create the event there) and *also* create the Partiful
 event for RSVPs.
 
-### "Set up a private members-only calendar"
-
-`/members/` embeds a private Google Calendar with REAL access control
-(no DIY password gate, no obfuscation).
-
-**One-time setup:**
-
-1. In Google Calendar, click the **+** next to "Other calendars" →
-   **Create new calendar**. Name it something like "SBG NorCal — Members".
-2. Open the calendar's **Settings and sharing**.
-3. Under **Share with specific people**, add each member's Google account
-   email with permission level **See all event details**. Keep this list
-   in sync with your roster — Google enforces access; we just render the
-   iframe.
-4. Scroll to **Integrate calendar** → copy the **Public URL to this calendar**
-   (the wording is misleading — when the calendar is private the URL still
-   requires viewer auth via Google).
-5. Paste the URL into `_data/site.yml` →
-   `calendars.members_calendar_url`.
-
-**What members see:** the full calendar.
-**What non-members see:** Google's "Sign in to your Google Account"
-panel inside the iframe, plus our custom fallback panel below the
-calendar that explains how to get access.
-
-This is real, free authentication on a static GitHub-Pages site —
-Google handles auth server-side. To revoke a member, remove their email
-from the calendar's share list.
-
 ### "We need to update the gym phone / address / hours"
 
 Edit `_data/site.yml` — everything in header, footer, schema, and contact
@@ -623,7 +594,6 @@ A handful of values are placeholders. Search and replace these before launch:
 |---|---|---|
 | `_data/site.yml` → `hours:` | Estimated weekday/Saturday hours | Actual front-desk hours |
 | `_data/site.yml` → `mats_email` | `info@baymats.org` | Actual MATS contact email if different |
-| `_data/site.yml` → `calendars.members_calendar_url` | `REPLACE_WITH_MEMBERS_CALENDAR_ID` | Real members-only Google Calendar URL (see "Set up a private members-only calendar" above) |
 | `_data/schedule.yml` | ✅ Done — real schedule | — |
 | `mats.html` donate links | ✅ Done — Venmo `@MATS-1450` (`_data/site.yml` → `donate:`) | — |
 | `_events/*.md` | 4 sample events incl. 2026-01 demo | Real upcoming events (delete the rest) |

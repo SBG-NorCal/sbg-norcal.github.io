@@ -30,5 +30,4 @@ footer:
     - { label: "Our Story",   url: "/about/" }
     - { label: "Lineage",     url: "/about/#lineage" }
     - { label: "Events",      url: "/events/" }
-    - { label: "Members",     url: "/members/" }
     - { label: "Contact",     url: "/contact/" }
