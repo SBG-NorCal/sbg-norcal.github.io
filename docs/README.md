@@ -2,7 +2,7 @@
 
 | Document | For whom |
 |---|---|
-| **[EDITING-GUIDE.md](EDITING-GUIDE.md)** | **Coaches, board members, front-desk staff.** Step-by-step recipes for adding/editing/deleting coaches, events, schedule, etc. — all from github.com, with screenshots. No Git or terminal required. |
+| **[EDITING-GUIDE.md](EDITING-GUIDE.md)** | **Coaches, board members, front-desk staff.** Step-by-step recipes for adding/editing/deleting coaches, schedule, etc. — all from github.com, with screenshots. No Git or terminal required. |
 | **[../README.md](../README.md)** | Developers. Project structure, local dev setup, deployment, design system. |
 
 ## When to use which

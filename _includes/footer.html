@@ -27,7 +27,7 @@
         <h4>Train</h4>
         <ul>
           {% for item in site.data.navigation.footer.train_with_us %}
-          <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+          <li><a href="{{ item.url | relative_url }}"{% if item.url contains '://' %} rel="noopener" target="_blank"{% endif %}>{{ item.label }}</a></li>
           {% endfor %}
         </ul>
       </div>
@@ -36,7 +36,7 @@
         <h4>Give Back</h4>
         <ul>
           {% for item in site.data.navigation.footer.give_back %}
-          <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+          <li><a href="{{ item.url | relative_url }}"{% if item.url contains '://' %} rel="noopener" target="_blank"{% endif %}>{{ item.label }}</a></li>
           {% endfor %}
         </ul>
       </div>
@@ -45,7 +45,7 @@
         <h4>About</h4>
         <ul>
           {% for item in site.data.navigation.footer.about_us %}
-          <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+          <li><a href="{{ item.url | relative_url }}"{% if item.url contains '://' %} rel="noopener" target="_blank"{% endif %}>{{ item.label }}</a></li>
           {% endfor %}
         </ul>
       </div>

@@ -14,7 +14,7 @@ All content is **YAML-driven**: update a `_data/*.yml` file or a
 ## 👋 First time here?
 
 **If you're a coach, board member, or front-desk staffer who needs to
-update content** (adding a coach, posting an event, fixing a typo), you
+update content** (adding a coach, fixing a typo), you
 do NOT need to install anything. Open the friendly step-by-step guide:
 
 ➡️ **[`docs/EDITING-GUIDE.md`](docs/EDITING-GUIDE.md)** — *with screenshots*
@@ -96,40 +96,6 @@ Edit `_data/schedule.yml`. Each entry:
 Coaches are **not** listed per class, and program pages don't list coaches —
 who covers a slot changes week to week. The coaches page lists everyone.
 
-### "We're hosting a new community event"
-
-Create `_events/2025-12-15-self-defense-workshop.md`:
-
-```yaml
----
-title: December Self-Defense Workshop
-slug: 2025-12-15-self-defense-workshop
-date: 2025-12-15
-time: "11:00 AM – 12:30 PM"
-location: SBG NorCal
-address: "1450 San Pablo Avenue, Berkeley, CA"
-hero_image: /assets/images/gallery/mats-5.jpg
-host: MATS
-cost: Free
-audience: "All ages, no experience needed"
-status: upcoming               # 'upcoming' or 'past'
-# RSVP — first match wins (partiful → luma → eventbrite → register_url):
-partiful_url:    "https://partiful.com/e/abc123"   # optional
-luma_url:        "https://lu.ma/your-event"        # optional
-eventbrite_url:  "https://eventbrite.com/e/123"    # optional
-register_url:    "/contact/"                       # fallback
-short: >-
-  One-paragraph teaser shown in the event listing.
----
-
-Long-form event description here. Markdown supported.
-```
-
-**Why not embed Partiful/Luma directly?** All three platforms block
-iframe embedding (`x-frame-options`). We link out instead — the listing
-shows a colored badge so guests know which platform handles RSVPs.
-See `_events/2026-01-new-year-open-mat.md` for a working example.
-
 ### "I need to change where the trial form sends submissions"
 
 The trial form on `/get-started/` and the contact form both POST directly
@@ -147,30 +113,6 @@ To swap to a different Google Form:
 2. Update `_data/site.yml` → `google_form.form_id`, `action`, and `fields`.
 3. If the program multiple-choice options changed, update
    `google_form.program_options` (map our slugs to the EXACT option strings).
-
-### "How do RSVPs work — Partiful, Luma, Eventbrite, etc.?"
-
-None of those platforms support iframe embedding (`x-frame-options` blocks
-it). The pattern: host the event on Partiful / Luma / Eventbrite for the
-RSVP UX, and add the link to the matching `_events/*.md` file:
-
-```yaml
-partiful_url:    "https://partiful.com/e/abc123"   # optional
-luma_url:        "https://lu.ma/your-event"        # optional
-eventbrite_url:  "https://eventbrite.com/e/123"    # optional
-register_url:    "/contact/"                       # internal fallback
-```
-
-The detail page picks the first one that's set (priority: Partiful → Luma →
-Eventbrite → register_url) and labels the button accordingly. The events
-listing shows a colored badge so guests know what platform is handling
-RSVPs. See `_events/2026-01-new-year-open-mat.md` for a working example.
-
-**Note:** Partiful does NOT have a subscribable iCal feed, so we can't
-auto-mirror all Partiful events into a calendar feed on the site. If you
-want a single calendar feed of all events, treat Google Calendar as the
-source of truth (create the event there) and *also* create the Partiful
-event for RSVPs.
 
 ### "We need to update the gym phone / address / hours"
 
@@ -216,7 +158,7 @@ deployed site runs on GitHub's Linux runners; locally, you have three
 setup paths.
 
 > **You only need a local setup if you're changing layouts, styles, or
-> templates.** Updating content (coaches, events, schedule) can be done
+> templates.** Updating content (coaches, schedule) can be done
 > entirely from github.com — see [`docs/EDITING-GUIDE.md`](docs/EDITING-GUIDE.md).
 
 ### Option 1 — Docker (recommended, works everywhere)
@@ -410,14 +352,12 @@ breakpoint and attaches full-page screenshots to the report.
 │
 ├── _coaches/                # One markdown file per coach
 ├── _programs/               # One markdown file per program
-├── _events/                 # One markdown file per event
 │
 ├── _layouts/                # Page wrappers
 │   ├── default.html         # Base layout (head, header, footer)
 │   ├── page.html            # Generic static page
 │   ├── coach.html           # Single-coach page
-│   ├── program.html         # Single-program page
-│   └── event.html           # Single-event page
+│   └── program.html         # Single-program page
 │
 ├── _includes/               # Reusable partials
 │   ├── header.html
@@ -447,7 +387,7 @@ breakpoint and attaches full-page screenshots to the report.
 │   └── deploy.yml           # GitHub Pages deployment
 │
 └── index.html, about.md, programs.html, coaches.html, schedule.html,
-    mats.html, get-started.html, events.html, contact.html
+    mats.html, get-started.html, contact.html
 ```
 
 ---
@@ -463,7 +403,6 @@ breakpoint and attaches full-page screenshots to the report.
 | **Testimonials** | `_data/testimonials.yml` | No (data) | testimonials[] |
 | **Coach** | `_coaches/<slug>.md` | `/coaches/<slug>/` | name, role, program, photo, belt, bio |
 | **Program** | `_programs/<slug>.md` | `/programs/<slug>/` | title, short, hero_image, levels[], ages |
-| **Event** | `_events/<slug>.md` | `/events/<slug>/` | title, date, time, location, status |
 
 All routable types have an `order` or `date` field for sorting.
 
@@ -596,8 +535,6 @@ A handful of values are placeholders. Search and replace these before launch:
 | `_data/site.yml` → `mats_email` | `info@baymats.org` | Actual MATS contact email if different |
 | `_data/schedule.yml` | ✅ Done — real schedule | — |
 | `mats.html` donate links | ✅ Done — Venmo `@MATS-1450` (`_data/site.yml` → `donate:`) | — |
-| `_events/*.md` | 4 sample events incl. 2026-01 demo | Real upcoming events (delete the rest) |
-| `_events/2026-01-new-year-open-mat.md` | `partiful_url: …REPLACE_WITH_REAL…` | Real Partiful event URL (or delete the field) |
 
 The trial / contact forms now submit to the gym's existing Google Form
 "CB Inquiries ~ SBG NorCal" — submissions land in the same Google Sheet

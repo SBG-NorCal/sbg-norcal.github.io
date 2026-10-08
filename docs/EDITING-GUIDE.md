@@ -15,9 +15,6 @@ Each "recipe" is a step-by-step for one common task. Skip to the one you need.
 | Add a new coach | [Add a coach](#recipe-add-a-coach) |
 | Update an existing coach's bio | [Edit a coach](#recipe-edit-a-coach) |
 | Remove a coach who left | [Delete a coach](#recipe-delete-a-coach) |
-| Add a new upcoming event | [Add an event](#recipe-add-an-event) |
-| Move an event to "past" or change details | [Edit an event](#recipe-edit-an-event) |
-| Cancel/remove an event | [Delete an event](#recipe-delete-an-event) |
 | Change a class on the weekly schedule | [Edit the schedule](#recipe-edit-the-schedule) |
 | Change gym phone, hours, address, social links | [Update site info](#recipe-update-site-info) |
 | Update the navigation menu | [Edit the menu](#recipe-edit-the-menu) |
@@ -32,7 +29,7 @@ If you've never used GitHub before, also read
 ## The 30-second mental model
 
 The website lives in a "repository" (a folder of files) on GitHub. Every
-piece of content — coaches, events, programs, gym hours — is a small text
+piece of content — coaches, programs, gym hours — is a small text
 file. To change the site, you change one of those files.
 
 You **never edit the live site directly**. Instead:
@@ -256,83 +253,6 @@ coach's. Otherwise the schedule grid will show a broken link.
 
 ---
 
-## Recipe: Add an event
-
-Create the file by following the
-[GitHub web workflow](#the-github-web-workflow), Steps 3a–7.
-
-**Folder:** [`_events/`](../_events/)
-
-**File name:** `YYYY-MM-DD-short-title.md`.
-Example: `2026-03-15-spring-self-defense-workshop.md`. Date prefix keeps
-files sorted nicely.
-
-**File contents:**
-
-```yaml
----
-title: Spring Self-Defense Workshop
-slug: 2026-03-15-spring-self-defense-workshop   # match file name
-date: 2026-03-15
-time: "11:00 AM – 12:30 PM"
-location: SBG NorCal
-address: "1450 San Pablo Avenue, Berkeley, CA"
-hero_image: /assets/images/gallery/mats-5.jpg
-host: MATS                       # or "SBG NorCal" or "SBG NorCal × MATS"
-cost: Free                       # or "$25 sliding scale" or whatever
-audience: "All ages, no experience needed"
-status: upcoming                 # 'upcoming' or 'past'
-# RSVP — fill ONE of these (first match wins).
-# All four are optional; leave the rest empty.
-partiful_url:    "https://partiful.com/e/abc123"
-luma_url:        ""
-eventbrite_url:  ""
-register_url:    "/contact/"     # fallback: takes them to our contact page
-short: >-
-  One-paragraph teaser shown in the event listing. Two or three sentences max.
----
-
-Full event description here. This shows on the event's own page.
-Markdown works — **bold**, *italic*, lists, [links](https://example.com).
-```
-
-**Hero image:** either reuse an existing photo from `assets/images/gallery/`
-(easiest) or upload a new one. **Recommended size: 1200×800 px (3:2), JPG,
-under 300 KB.** See [Image specifications](#image-specifications) for the
-full breakdown. To upload a new one, add it to `assets/images/gallery/` in
-the same pull request — see
-[Adding more files to an open pull request](#adding-more-files-to-an-open-pull-request).
-
----
-
-## Recipe: Edit an event
-
-Open the file in [`_events/`](../_events/), click the pencil, change
-what you need, follow the [GitHub web workflow](#the-github-web-workflow)
-from Step 4.
-
-**Most common edits:**
-
-- **Move past:** change `status: upcoming` → `status: past`.
-- **Reschedule:** update `date:` and `time:`.
-- **Change RSVP destination:** fill `partiful_url:` (or `luma_url:`,
-  `eventbrite_url:`).
-
----
-
-## Recipe: Delete an event
-
-Same as [Delete a coach](#recipe-delete-a-coach), Option B — open the
-file, click the trash icon, then follow the
-[GitHub web workflow](#the-github-web-workflow) Steps 5–7.
-
-> **Soft delete tip:** If the event already happened and people might
-> google for it, **change `status` to `past`** instead of deleting. The
-> event will move into the "Past events" archive at the bottom of the
-> events page.
-
----
-
 ## Recipe: Edit the schedule
 
 **File:** [`_data/schedule.yml`](../_data/schedule.yml) — open it and follow
@@ -427,7 +347,6 @@ stretched, blurry, or cause horizontal scrolling on mobile.
 |---|---|---|---|---|---|
 | Coach portrait | `assets/images/coaches/` | **800 × 1000 px** | 4:5 (portrait) | 200 KB | JPG |
 | Program hero | `assets/images/programs/` | **1600 × 900 px** | 16:9 (wide) | 400 KB | JPG |
-| Event hero | `assets/images/gallery/` *(reused)* | **1200 × 800 px** | 3:2 (wide) | 300 KB | JPG |
 | Gallery / general | `assets/images/gallery/` | **1200 × 800 px** | 3:2 (wide) | 300 KB | JPG |
 | Page banner (about, etc.) | `assets/images/hero/` | **2400 × 1400 px** | ~17:10 (wide) | 600 KB | JPG |
 
@@ -472,7 +391,6 @@ If you don't already have a way to resize photos, use <https://www.birme.net>
 |---|---|---|
 | Coach portrait | `firstname-lastname.jpg` | `jane-doe.jpg` |
 | Program hero | `program-slug.jpg` | `brazilian-jiu-jitsu.jpg` |
-| Event hero | `YYYY-MM-DD-short-name.jpg` *or* reuse one from `gallery/` | `2026-03-15-spring-workshop.jpg` |
 | Gallery / general | `topic-N.jpg` | `mats-7.jpg`, `gym-social-2.jpg` |
 
 All lowercase, hyphens for spaces, no special characters. The file name

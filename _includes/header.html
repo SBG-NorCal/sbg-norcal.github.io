@@ -14,7 +14,7 @@
           {% assign active = false %}
           {% if page.url == item.url %}{% assign active = true %}{% endif %}
           {% if item.url != '/' and page.url contains item.url %}{% assign active = true %}{% endif %}
-          <a href="{{ item.url | relative_url }}"{% if active %} class="is-active"{% endif %}>{{ item.label }}</a>
+          <a href="{{ item.url | relative_url }}"{% if item.url contains '://' %} rel="noopener" target="_blank"{% endif %}{% if active %} class="is-active"{% endif %}>{{ item.label }}</a>
         {% endfor %}
       </nav>
 
@@ -37,7 +37,7 @@
   <div class="container">
     <ul>
       {% for item in site.data.navigation.primary %}
-      <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+      <li><a href="{{ item.url | relative_url }}"{% if item.url contains '://' %} rel="noopener" target="_blank"{% endif %}>{{ item.label }}</a></li>
       {% endfor %}
     </ul>
     <a href="{{ site.data.navigation.cta.url | relative_url }}" class="btn btn--primary btn--block btn--lg">

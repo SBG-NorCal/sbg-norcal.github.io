@@ -47,9 +47,8 @@ social:
   - { name: "Facebook",  handle: "SBG NorCal", url: "https://www.facebook.com/ModCom/", icon: "facebook" }
   - { name: "YouTube",   handle: "SBG NorCal", url: "https://www.youtube.com/@sbgnorcal1172", icon: "youtube" }
 
-# Calendar feeds for the Events page
+# Calendar feeds for the Schedule page
 calendars:
-  # PUBLIC events — anyone can see. Embed this in /events/ and the homepage.
   google_calendar_url: "https://calendar.google.com/calendar/embed?src=sbgnorcal.news%40gmail.com"
   # iCal feed of the same public calendar (Apple Calendar / Outlook subscribe).
   # Google auto-publishes this when the calendar is marked "Make available to public".
