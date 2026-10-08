@@ -4,16 +4,9 @@ slug: fred-yu
 order: 4
 role: Integrations Jiu-Jitsu Coach
 program: Brazilian Jiu-Jitsu, Kickboxing & MMA
-programs: [brazilian-jiu-jitsu, kickboxing, mma]   # slugs from _programs/ — drives the coach list on program pages
 photo: /assets/images/coaches/fred-yu.jpg
 belt: BJJ Black Belt
-secondary_belt: SanShou Kickboxing
-years_training: 30
 joined: 2010
-specialties:
-  - Brazilian Jiu-Jitsu
-  - SanShou Kickboxing
-  - MMA competition
 short_bio: >-
   Lifelong martial artist specializing in SanShou Kickboxing and BJJ.
   Has taught and competed in Jiu-Jitsu, Kickboxing, and MMA.

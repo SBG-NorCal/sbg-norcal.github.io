@@ -54,9 +54,8 @@ We teach the most efficient delivery systems of **stand-up, clinch, and ground**
 ## Run as a nonprofit
 
 SBG NorCal is organized as a nonprofit under **Martial Arts Training and Scholarship**
-(MATS), a 501(c)(3). All our coaches graduate from our year-long coach's course, and
-all of them are volunteers. That model lets every dollar from membership go back into
-the gym — and into scholarships.
+(MATS), a 501(c)(3). Our profits go to sponsoring athletes who otherwise couldn't
+afford to train, and to hosting free events for the community.
 
 We have scholarship programs for Youth & Families offered through Berkeley Unified
 School District, and for Young Adults through the Berkeley Adult School. Alongside

@@ -49,30 +49,4 @@ layout: default
   </dl>
 </div>
 
-{% comment %}
-  List coaches who teach this program.
-
-  Driven by the `programs:` list in each coach's front matter, NOT by
-  _data/schedule.yml — the schedule intentionally carries no coach
-  assignments, since who teaches a given slot changes week to week.
-  To change who appears here, edit `programs:` in _coaches/<slug>.md.
-{% endcomment %}
-{% assign program_coaches = site.coaches | where_exp: "c", "c.programs contains page.slug" | sort: "order" %}
-
-{% if program_coaches.size > 0 %}
-<section class="section section--alt">
-  <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Who you'll train with</span>
-      <h2>{{ page.title }} Coaches</h2>
-    </div>
-    <div class="coaches-grid">
-      {% for coach in program_coaches %}
-        {% include coach-card.html coach=coach %}
-      {% endfor %}
-    </div>
-  </div>
-</section>
-{% endif %}
-
 {% include cta-banner.html %}

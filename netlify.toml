@@ -1,0 +1,21 @@
+# =========================================================================
+# Preview builds for shareable branch URLs.
+#
+# The LIVE site does not use this file. Production still ships through
+# .github/workflows/deploy.yml to GitHub Pages. This exists only so a branch
+# can be handed to someone as a link before it merges.
+#
+# `baseurl` is deliberately NOT set here. Netlify serves every deploy from a
+# domain root, exactly like the org-site repo does, so local, preview, and
+# production all agree on an empty prefix — see CLAUDE.md, "Deployment / URLs".
+#
+# The Ruby version comes from .ruby-version (Netlify reads it). Keep it in
+# that one file so it can't drift from what CI and local Docker build with.
+# =========================================================================
+
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"

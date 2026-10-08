@@ -60,9 +60,7 @@ collaborator on the repository. Ask them once; you're set forever after.
 
 ### Step 2 — Open the repository
 
-Go to <https://github.com/SBG-NorCal/sbg-norcal.github.io>
-(your bookmark this; the gym lead will share the real URL once the repo
-is created).
+Go to <https://github.com/SBG-NorCal/preview> and bookmark it.
 
 ### Step 3a — Adding a NEW file
 
@@ -80,6 +78,12 @@ Click the file name in the list. On the file's page, click the **pencil
 icon** at the top right.
 
 ![The edit pencil icon](img/gh-edit-pencil.png)
+
+### Step 3c — Uploading a photo or other file
+
+Browse to the folder you need. Click **Add file** → **Upload files**, then
+drag in your files (you can drag several at once). Skip to
+[Step 5](#step-5--save-by-clicking-commit-changes).
 
 ### Step 4 — Type or paste the content
 
@@ -130,11 +134,37 @@ Go to the **Pull requests** tab at the top of the repository. Your PR
 shows up there until it's merged or closed. You can reply to review
 comments, push more edits, or close it if you change your mind.
 
+### Adding more files to an open pull request
+
+To add another file (or another edit) to a pull request you've already
+opened:
+
+1. Open your pull request. Near the top it says *wants to merge … from
+   **your-branch-name***. Note that branch name.
+2. Go to the repository's main page. Click the branch dropdown (it says
+   **main**) and pick your branch.
+3. Add, edit, or upload the file as in
+   [Step 3a](#step-3a--adding-a-new-file),
+   [Step 3b](#step-3b--editing-an-existing-file), or
+   [Step 3c](#step-3c--uploading-a-photo-or-other-file).
+4. Click **Commit changes…**, choose **Commit directly to the
+   your-branch-name branch**, and click **Commit changes**.
+
+Your pull request updates automatically. No need to open a new one.
+
 ---
 
 # Recipes
 
 ## Recipe: Add a coach
+
+A new coach needs two files in the same pull request: the coach file and
+their photo.
+
+1. Create the coach file (below) by following the
+   [GitHub web workflow](#the-github-web-workflow), Steps 3a–7.
+2. Add the photo to that same pull request by following
+   [Adding more files to an open pull request](#adding-more-files-to-an-open-pull-request).
 
 **Folder:** [`_coaches/`](../_coaches/)
 
@@ -152,12 +182,7 @@ role: Foundations Jiu-Jitsu Coach
 program: Brazilian Jiu-Jitsu
 photo: /assets/images/coaches/jane-doe.jpg
 belt: BJJ Purple Belt
-secondary_belt: ""              # optional, leave empty if none
-years_training: 5
 joined: 2025
-specialties:
-  - Foundations Jiu-Jitsu
-  - Beginner onboarding
 short_bio: >-
   One-or-two-sentence bio that shows on the coach card across the site.
 ---
@@ -168,15 +193,16 @@ at /coaches/jane-doe/.
 You can use **bold**, *italic*, and links like [SBGi](https://straightblastgym.com).
 ```
 
-**Don't forget the photo.** Upload it separately:
+**Photo:**
 
-1. In the repo, click into `assets/` → `images/` → `coaches/`.
-2. Click **Add file** → **Upload files**.
-3. Drag in the portrait JPG. Rename it (before uploading) to match the
-   `photo:` path exactly — e.g. `jane-doe.jpg`.
-4. Commit as part of the same pull request (or a separate one — both work).
+- **Folder:** `assets/images/coaches/`
+- **File name:** must match the `photo:` line exactly — e.g. `jane-doe.jpg`.
+  Rename it before uploading.
+- Upload it with [Step 3c](#step-3c--uploading-a-photo-or-other-file),
+  committing to your coach's branch as described in
+  [Adding more files to an open pull request](#adding-more-files-to-an-open-pull-request).
 
-**Photo specs:** see the [Image specifications](#image-specifications) section below — short version: **800×1000 px, 4:5 portrait, JPG, under 200 KB**.
+**Photo specs:** see the [Image specifications](#image-specifications) section below — short version: **800 wide × 1000 tall px, 4:5 portrait, JPG, under 200 KB**. If you need to resize a photo, see [How to resize a photo](#how-to-resize-a-photo-before-uploading).
 
 ---
 
@@ -197,7 +223,8 @@ preview used on the homepage and coaches page.
 When a coach leaves, you have two options:
 
 **Option A — Hide them (recommended at first):** Edit the coach's file
-and add this line between the dashes near the top:
+([Step 3b](#step-3b--editing-an-existing-file) onwards) and add this line
+between the dashes near the top:
 
 ```yaml
 hidden: true
@@ -221,14 +248,18 @@ keeps working if they're still teaching classes.
    branch — same as the [GitHub web workflow](#the-github-web-workflow)
    Steps 5–7.
 
-**⚠️ Also remove them from the schedule.** Open
-[`_data/schedule.yml`](../_data/schedule.yml) and delete any entries
+**⚠️ Also remove them from the schedule**, in the same pull request (see
+[Adding more files to an open pull request](#adding-more-files-to-an-open-pull-request)).
+Open [`_data/schedule.yml`](../_data/schedule.yml) and delete any entries
 where `coaches: [their-slug]` appears, OR replace their slug with another
 coach's. Otherwise the schedule grid will show a broken link.
 
 ---
 
 ## Recipe: Add an event
+
+Create the file by following the
+[GitHub web workflow](#the-github-web-workflow), Steps 3a–7.
 
 **Folder:** [`_events/`](../_events/)
 
@@ -268,7 +299,9 @@ Markdown works — **bold**, *italic*, lists, [links](https://example.com).
 **Hero image:** either reuse an existing photo from `assets/images/gallery/`
 (easiest) or upload a new one. **Recommended size: 1200×800 px (3:2), JPG,
 under 300 KB.** See [Image specifications](#image-specifications) for the
-full breakdown.
+full breakdown. To upload a new one, add it to `assets/images/gallery/` in
+the same pull request — see
+[Adding more files to an open pull request](#adding-more-files-to-an-open-pull-request).
 
 ---
 
@@ -290,7 +323,8 @@ from Step 4.
 ## Recipe: Delete an event
 
 Same as [Delete a coach](#recipe-delete-a-coach), Option B — open the
-file, click the trash icon.
+file, click the trash icon, then follow the
+[GitHub web workflow](#the-github-web-workflow) Steps 5–7.
 
 > **Soft delete tip:** If the event already happened and people might
 > google for it, **change `status` to `past`** instead of deleting. The
@@ -301,7 +335,8 @@ file, click the trash icon.
 
 ## Recipe: Edit the schedule
 
-**File:** [`_data/schedule.yml`](../_data/schedule.yml)
+**File:** [`_data/schedule.yml`](../_data/schedule.yml) — open it and follow
+the [GitHub web workflow](#the-github-web-workflow) from Step 3b.
 
 This is one big list of classes, one entry per class slot. Each entry
 looks like this:
@@ -333,7 +368,8 @@ the coach's slug (file name in `_coaches/` without `.md`).
 
 ## Recipe: Update site info
 
-**File:** [`_data/site.yml`](../_data/site.yml)
+**File:** [`_data/site.yml`](../_data/site.yml) — open it and follow the
+[GitHub web workflow](#the-github-web-workflow) from Step 3b.
 
 This is the source of truth for the brand, contact info, social links,
 and calendars. Everything in the header, footer, and contact page reads
@@ -363,7 +399,8 @@ everywhere automatically.
 
 ## Recipe: Edit the menu
 
-**File:** [`_data/navigation.yml`](../_data/navigation.yml)
+**File:** [`_data/navigation.yml`](../_data/navigation.yml) — open it and
+follow the [GitHub web workflow](#the-github-web-workflow) from Step 3b.
 
 The top navigation bar reads from the `primary:` list. Each entry:
 
@@ -400,26 +437,22 @@ stretched, blurry, or cause horizontal scrolling on mobile.
 
 ## How to resize a photo before uploading
 
-You don't need Photoshop. Use any of these (all free):
+If you don't already have a way to resize photos, use <https://www.birme.net>
+(free, works on Mac and Windows, your photo isn't uploaded anywhere).
 
-| Tool | Where | Best for |
-|---|---|---|
-| **macOS Preview** | Built into every Mac | Open → Tools → Adjust Size → enter the width, hit OK → File → Export with quality slider at ~80% |
-| **Windows Photos** | Built into Windows 10/11 | Open → ⋯ → Resize → Custom dimensions |
-| **squoosh.app** | <https://squoosh.app> | Browser-based, no install. Drag image in, pick MozJPEG, slide quality to ~80%, set "Resize" on the left panel |
-| **TinyJPG** | <https://tinyjpg.com> | Browser-based, drag-and-drop optimizer that often gets photos under 100 KB without visible quality loss |
-| **iPhone Shortcuts** | Built into iOS | The "Resize Image" action — set to 800 wide, save as JPG |
-
-**Typical workflow for a new coach portrait:**
-
-1. Take or pick a photo where the coach's head and shoulders are visible.
-2. Crop to a tall rectangle (taller than wide) — 4:5 ratio means 800 px
-   wide × 1000 px tall.
-3. Export as JPG, quality 80%.
-4. Check the file size — should be under 200 KB. If it's bigger, run it
-   through <https://tinyjpg.com>.
-5. Rename to `firstname-lastname.jpg` (lowercase, no spaces).
-6. Follow the [Add a coach](#recipe-add-a-coach) recipe to upload.
+1. Go to <https://www.birme.net>.
+2. Drag your photo onto the page.
+3. On the right, untick **Auto Width** and **Auto height**, then type the
+   **Width** and **Height** from the [Quick reference](#quick-reference)
+   table (coach portrait: **800** wide, **1000** tall).
+4. The striped areas of the preview will be cut off. If a head is in the
+   stripes, click the **crop icon** under the photo and drag the box to
+   frame the person.
+5. Open **Image Format & Quality**, choose **JPEG**, and set quality to **80**.
+6. Click **Download Files**.
+7. Check the file is under the size limit in the table. If it's too big,
+   repeat with quality **70**.
+8. Rename it to `firstname-lastname.jpg` (lowercase, no spaces).
 
 ## What happens if my photo is the wrong size?
 

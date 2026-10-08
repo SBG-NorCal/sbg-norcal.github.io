@@ -53,18 +53,9 @@ slug: firstname-lastname
 order: 13                      # Display order (1 = first)
 role: Foundations Jiu-Jitsu Coach
 program: Brazilian Jiu-Jitsu     # Free-text, shown on the coach's page
-programs: [brazilian-jiu-jitsu]  # Slugs from _programs/. Controls which
-                                 # program pages list this coach under
-                                 # "Who you'll train with". Can be several:
-                                 # [kickboxing, mma, boxing-bootcamp]
 photo: /assets/images/coaches/firstname-lastname.jpg
 belt: BJJ Purple Belt
-secondary_belt: ""             # Optional
-years_training: 5
 joined: 2024
-specialties:
-  - Foundations Jiu-Jitsu
-  - Beginner onboarding
 short_bio: >-
   One-or-two-sentence bio that shows on the coach card across the site.
 ---
@@ -102,10 +93,8 @@ Edit `_data/schedule.yml`. Each entry:
 > python tests/crosscheck_schedule.py
 > ```
 
-Coaches are **not** listed per class. The "Who you'll train with" section on
-each program page is driven by the `programs:` list in
-`_coaches/<slug>.md` instead — see
-[Content model](#content-model).
+Coaches are **not** listed per class, and program pages don't list coaches —
+who covers a slot changes week to week. The coaches page lists everyone.
 
 ### "We're hosting a new community event"
 
@@ -501,7 +490,7 @@ breakpoint and attaches full-page screenshots to the report.
 | **Schedule** | `_data/schedule.yml` | No (data) | classes[] |
 | **Partners** | `_data/partners.yml` | No (data) | partners[] |
 | **Testimonials** | `_data/testimonials.yml` | No (data) | testimonials[] |
-| **Coach** | `_coaches/<slug>.md` | `/coaches/<slug>/` | name, role, program, photo, belts, bio |
+| **Coach** | `_coaches/<slug>.md` | `/coaches/<slug>/` | name, role, program, photo, belt, bio |
 | **Program** | `_programs/<slug>.md` | `/programs/<slug>/` | title, short, hero_image, levels[], ages |
 | **Event** | `_events/<slug>.md` | `/events/<slug>/` | title, date, time, location, status |
 
