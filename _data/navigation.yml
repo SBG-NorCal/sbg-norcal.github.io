@@ -24,7 +24,6 @@ footer:
   give_back:
     - { label: "About MATS",        url: "/mats/" }
     - { label: "Donate",            url: "/mats/#donate" }
-    - { label: "Become a Partner",  url: "/mats/#partners" }
     - { label: "Sponsor a Youth Athlete", url: "/mats/#sponsor" }
   about_us:
     - { label: "Our Story",   url: "/about/" }
