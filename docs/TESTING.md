@@ -6,7 +6,7 @@ and Windows**.
 
 ## Quick start
 
-**Editing content** (schedule, coaches, events)? You don't need any of
+**Editing content** (schedule, coaches)? You don't need any of
 this — edit on github.com, open a pull request, and CI runs the checks for
 you. See [`EDITING-GUIDE.md`](EDITING-GUIDE.md).
 

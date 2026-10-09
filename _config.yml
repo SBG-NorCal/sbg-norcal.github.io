@@ -75,9 +75,6 @@ collections:
   programs:
     output: true
     permalink: /programs/:name/
-  events:
-    output: true
-    permalink: /events/:name/
 
 # Default front matter so editors don't have to repeat themselves
 defaults:
@@ -87,9 +84,6 @@ defaults:
   - scope: { path: "", type: "programs" }
     values:
       layout: program
-  - scope: { path: "", type: "events" }
-    values:
-      layout: event
   - scope: { path: "" }
     values:
       layout: page

@@ -8,7 +8,7 @@ primary:
   - { label: "Schedule",  url: "/schedule/" }
   - { label: "Coaches",   url: "/coaches/" }
   - { label: "MATS",      url: "/mats/" }
-  - { label: "Events",    url: "/events/" }
+  - { label: "Events",    url: "https://partiful.com/u/2aM9LcHtlXcQcpF2g91P" }
   - { label: "Contact",   url: "/contact/" }
 
 cta:
@@ -29,6 +29,5 @@ footer:
   about_us:
     - { label: "Our Story",   url: "/about/" }
     - { label: "Lineage",     url: "/about/#lineage" }
-    - { label: "Events",      url: "/events/" }
-    - { label: "Members",     url: "/members/" }
+    - { label: "Events",      url: "https://partiful.com/u/2aM9LcHtlXcQcpF2g91P" }
     - { label: "Contact",     url: "/contact/" }

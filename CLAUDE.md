@@ -21,7 +21,6 @@ data over editing templates:
 | Class schedule | `_data/schedule.yml` |
 | Coaches | `_coaches/<slug>.md` (+ portrait in `assets/images/coaches/`) |
 | Programs | `_programs/<slug>.md` |
-| Events | `_events/<date>-<slug>.md` |
 | Nav, contact info, socials, donate links | `_data/site.yml`, `_data/navigation.yml` |
 
 Slugs are referential: `schedule.yml` → `program:` must match a
